@@ -220,7 +220,7 @@ const MsgActions = (() => {
     let target = null;
     const bar = document.createElement('div');
     bar.className = 'msg-reply-bar';
-    bar.innerHTML = `<div class="msg-reply-bar-text"></div><button type="button" class="msg-reply-bar-close">✕</button>`;
+    bar.innerHTML = `<div class="msg-reply-bar-text"></div><button type="button" class="msg-reply-bar-close"><svg class="icon icon-sm" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-x"/></svg></button>`;
     formEl.parentElement.insertBefore(bar, formEl);
     bar.querySelector('.msg-reply-bar-close').addEventListener('click', () => clear());
     function set(id, snippet){
@@ -367,7 +367,7 @@ const CannedReplies = (() => {
       const del = document.createElement('button');
       del.type = 'button';
       del.className = 'canned-del';
-      del.textContent = '✕';
+      del.innerHTML = '<svg class="icon icon-sm" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-x"/></svg>';
       del.title = 'Удалить шаблон';
       del.addEventListener('click', e => { e.stopPropagation(); remove(text); open(anchorEl, inputEl); });
       row.appendChild(span);
@@ -2433,7 +2433,7 @@ function applyFeaturesUI(){
         lock = document.createElement('div');
         lock.id = 'aiPageLock';
         lock.className = 'feature-lock';
-        lock.innerHTML = `<div class="feature-lock-box">🔒<b>Чат ИИ недоступен</b><p>Эта возможность отключена для вашего аккаунта или недоступна на текущем тарифе.</p></div>`;
+        lock.innerHTML = `<div class="feature-lock-box"><svg class="icon icon-lg" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-lock"/></svg><b>Чат ИИ недоступен</b><p>Эта возможность отключена для вашего аккаунта или недоступна на текущем тарифе.</p></div>`;
         aiPage.appendChild(lock);
       }
     } else if (lock){ lock.remove(); }
@@ -2463,7 +2463,7 @@ function applyFeaturesUI(){
         lock = document.createElement('div');
         lock.id = 'heatmapLock';
         lock.className = 'feature-lock';
-        lock.innerHTML = `<div class="feature-lock-box">🔒<b>Полная аналитика</b><p>Тепловая карта активности доступна на тарифах «Стандарт» и «Бизнес».</p><button class="btn btn-primary btn-sm" id="heatmapUpgradeBtn">Смотреть тарифы</button></div>`;
+        lock.innerHTML = `<div class="feature-lock-box"><svg class="icon icon-lg" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-lock"/></svg><b>Полная аналитика</b><p>Тепловая карта активности доступна на тарифах «Стандарт» и «Бизнес».</p><button class="btn btn-primary btn-sm" id="heatmapUpgradeBtn">Смотреть тарифы</button></div>`;
         heatCard.style.position = 'relative';
         heatCard.appendChild(lock);
         lock.querySelector('#heatmapUpgradeBtn').addEventListener('click', () => switchDashView('plan'));
@@ -2484,8 +2484,9 @@ function updateAiLimitBadge(){
   const bonus = aiUsage.bonus || 0;
   const left = limit > 0 ? Math.max(0, limit - aiUsage.used) : null;
   let text = limit > 0 ? `осталось ${left} из ${limit}` : 'без лимита';
-  if (limit > 0 && bonus > 0) text += ` +${bonus} 🎁`;
-  $('#aiLimitText').textContent = text;
+  let bonusHtml = '';
+  if (limit > 0 && bonus > 0) bonusHtml = ` +${bonus} <svg class="icon icon-sm" viewBox="0 0 24 24" aria-hidden="true" style="vertical-align:-3px"><use href="#icon-gift"/></svg>`;
+  $('#aiLimitText').innerHTML = escapeHtml(text) + bonusHtml;
   badge.classList.toggle('exhausted', limit > 0 && left === 0 && bonus === 0);
 }
 
@@ -2975,8 +2976,8 @@ function renderNextActions(){
     if (c.col === 'done') return;
     if (c.aiRisk === null || !c.aiRiskAt || c.aiRiskAt < c.updatedAt) return;
     if (c.aiRisk < 30){ scoredMap.delete(c.id); return; }
-    const reason = c.aiRiskReason ? `🤖 ${c.aiRiskReason}` : `🤖 риск потери сделки: ${c.aiRisk}%`;
-    scoredMap.set(c.id, { c, score: c.aiRisk * 100, reason });
+    const reason = c.aiRiskReason || `риск потери сделки: ${c.aiRisk}%`;
+    scoredMap.set(c.id, { c, score: c.aiRisk * 100, reason, icon: 'sparkle' });
   });
   // Просроченные/сегодняшние напоминания — приоритет выше всего остального
   // и независимо от этапа сделки (в т.ч. для уже завершённых, "done").
@@ -2993,12 +2994,15 @@ function renderNextActions(){
     list.innerHTML = '<p style="color:var(--muted);font-size:13.5px;">Пока всё под контролем — срочных заявок нет</p>';
     return;
   }
-  list.innerHTML = scored.map(({c, reason}) => {
+  list.innerHTML = scored.map(({c, reason, icon}) => {
     const sent = SENTIMENT_META[c.sentiment || 'neu'];
+    const iconHtml = icon === 'sparkle'
+      ? '<svg class="icon icon-sm na-reason-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-sparkle"/></svg>'
+      : '';
     return `<div class="na-row" data-id="${c.id}">
       <span class="sent-dot ${sent.cls}"></span>
       <div class="kcard-avatar">${escapeHtml(initials(c.name))}</div>
-      <div class="na-txt"><b>${escapeHtml(c.name)}</b><span>${escapeHtml(reason)}</span></div>
+      <div class="na-txt"><b>${escapeHtml(c.name)}</b><span>${iconHtml}${escapeHtml(reason)}</span></div>
       <button class="btn btn-outline btn-sm na-open">Открыть</button>
     </div>`;
   }).join('');
@@ -3607,7 +3611,7 @@ function buildBubble(m, c){
     b.classList.add('bubble-failed');
     const mark = document.createElement('span');
     mark.className = 'bubble-failed-mark';
-    mark.textContent = '⚠ не доставлено';
+    mark.innerHTML = '<svg class="icon icon-sm" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-alert-triangle"/></svg> не доставлено';
     b.appendChild(mark);
   }
   MsgActions.renderReactions(b, m.reactions, doReact);
@@ -3732,7 +3736,7 @@ function pushOutgoing(c, { text = '', photo = null, audio = null, replyToId = nu
       bubbleEl.classList.add('bubble-failed');
       const mark = document.createElement('span');
       mark.className = 'bubble-failed-mark';
-      mark.textContent = '⚠ не доставлено';
+      mark.innerHTML = '<svg class="icon icon-sm" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-alert-triangle"/></svg> не доставлено';
       bubbleEl.appendChild(mark);
     }
     showToast('Не удалось отправить: ' + (err.message || 'ошибка сервера'), 'error');
@@ -4225,7 +4229,7 @@ function aiAppendThinking(text){
   block.className = 'ai-think';
   block.innerHTML = `
     <button class="ai-think-head" type="button">
-      <span class="ai-think-icon">🧠</span>
+      <span class="ai-think-icon"><svg class="icon icon-sm" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-sparkle"/></svg></span>
       <span class="ai-think-label">Размышления</span>
       <svg class="icon icon-sm ai-think-chevron" viewBox="0 0 24 24"><use href="#icon-chevron-down"/></svg>
     </button>
@@ -4259,7 +4263,7 @@ async function aiAsk(question){
   pending.className = 'ai-think ai-think-pending';
   pending.innerHTML = `
     <div class="ai-think-head">
-      <span class="ai-think-icon">🧠</span>
+      <span class="ai-think-icon"><svg class="icon icon-sm" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-sparkle"/></svg></span>
       <span class="ai-think-label">ИИ размышляет<span class="ai-dots"><span>.</span><span>.</span><span>.</span></span></span>
     </div>`;
   body.appendChild(pending);
@@ -4538,7 +4542,7 @@ async function aiRunCommand(raw){
   pending.className = 'ai-think ai-think-pending';
   pending.innerHTML = `
     <div class="ai-think-head">
-      <span class="ai-think-icon">⚙️</span>
+      <span class="ai-think-icon"><svg class="icon icon-sm" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-settings"/></svg></span>
       <span class="ai-think-label">Выполняю команду<span class="ai-dots"><span>.</span><span>.</span><span>.</span></span></span>
     </div>`;
   body.appendChild(pending);
@@ -5010,7 +5014,7 @@ function renderTourStep(){
   const prevBtn = $('#tourPrev'), nextBtn = $('#tourNext'), skipBtn = $('#tourSkip');
   prevBtn.style.visibility = tourStepIndex === 0 ? 'hidden' : 'visible';
   nextBtn.textContent = step.last ? 'Понятно, спасибо!' : 'Дальше →';
-  skipBtn.textContent = 'Пропустить тур ✕';
+  skipBtn.innerHTML = 'Пропустить тур <svg class="icon icon-sm" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-x"/></svg>';
 
   const dots = $('#tourDots');
   dots.innerHTML = '';
@@ -7390,7 +7394,7 @@ $('#tgStoryFileInput')?.addEventListener('change', async () => {
     tgStoryPendingMedia = { url: data.url, type: isVideo ? 'video' : 'photo' };
     preview.innerHTML = `
       ${isVideo ? `<video src="${escapeHtml(data.url)}" controls></video>` : `<img src="${escapeHtml(data.url)}" alt="">`}
-      <button type="button" class="tg-story-preview-remove" id="tgStoryPreviewRemove">✕</button>`;
+      <button type="button" class="tg-story-preview-remove" id="tgStoryPreviewRemove"><svg class="icon icon-sm" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-x"/></svg></button>`;
     $('#tgStoryPreviewRemove').addEventListener('click', () => {
       tgStoryPendingMedia = null;
       preview.style.display = 'none';
@@ -7718,7 +7722,7 @@ function renderJourney(data){
       const justNew = a.just_unlocked ? ' just-unlocked' : '';
       const badge = a.unlocked
         ? `<span class="journey-node-check"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-check"/></svg></span>`
-        : `<span class="journey-node-lock">🔒</span>`;
+        : `<span class="journey-node-lock"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-lock"/></svg></span>`;
       const meta = a.unlocked ? `+${a.xp} XP · ${journeyFmtDate(a.unlocked_at)}` : `Заблокировано · +${a.xp} XP`;
       const newBadge = a.just_unlocked ? '<span class="journey-new-badge">Новое</span>' : '';
       return `

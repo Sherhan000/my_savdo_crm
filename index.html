@@ -170,6 +170,30 @@
 <g id="icon-key" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
   <circle cx="8" cy="15" r="3.5"/><path d="M10.5 12.5L20 3"/><path d="M17 6l3 3"/><path d="M14 9l2 2"/>
 </g>
+<g id="icon-lock" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+  <rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/>
+</g>
+<g id="icon-gift" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+  <rect x="3" y="8" width="18" height="4"/><path d="M5 12h14v9a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1v-9z"/>
+  <line x1="12" y1="8" x2="12" y2="22"/>
+  <path d="M12 8C10 5 7 4.5 6 6c-1 1.5.5 2.8 3 2.8"/><path d="M12 8c2-3 5-3.5 6-2c1 1.5-.5 2.8-3 2.8"/>
+</g>
+<g id="icon-alert-triangle" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M10.3 3.9 1.9 18a2 2 0 0 0 1.7 3h16.8a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/>
+  <line x1="12" y1="9" x2="12" y2="13.5"/><line x1="12" y1="17" x2="12" y2="17"/>
+</g>
+<g id="icon-settings" fill="currentColor" stroke="none">
+  <circle cx="12" cy="12" r="3.4"/>
+  <rect x="10.7" y="1.5" width="2.6" height="4" rx="1"/>
+  <rect x="10.7" y="18.5" width="2.6" height="4" rx="1"/>
+  <rect x="10.7" y="1.5" width="2.6" height="4" rx="1" transform="rotate(45 12 12)"/>
+  <rect x="10.7" y="1.5" width="2.6" height="4" rx="1" transform="rotate(90 12 12)"/>
+  <rect x="10.7" y="1.5" width="2.6" height="4" rx="1" transform="rotate(135 12 12)"/>
+  <rect x="10.7" y="1.5" width="2.6" height="4" rx="1" transform="rotate(180 12 12)"/>
+  <rect x="10.7" y="1.5" width="2.6" height="4" rx="1" transform="rotate(225 12 12)"/>
+  <rect x="10.7" y="1.5" width="2.6" height="4" rx="1" transform="rotate(270 12 12)"/>
+  <rect x="10.7" y="1.5" width="2.6" height="4" rx="1" transform="rotate(315 12 12)"/>
+</g>
 </defs>
 </svg>
 
@@ -530,7 +554,7 @@
 
 <div class="modal-overlay" id="authModal">
   <div class="modal-box" style="position:relative;">
-    <button class="modal-close" id="authClose">✕</button>
+    <button class="modal-close" id="authClose"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-x"/></svg></button>
     <div class="modal-head">
       <h3 id="authTitle">Создать аккаунт</h3>
       <p id="authSub">Первый месяц бесплатно, без карты</p>
@@ -581,7 +605,7 @@
 
 <div class="modal-overlay" id="emailVerifyModal">
   <div class="modal-box" style="position:relative;">
-    <button class="modal-close" id="emailVerifyClose">✕</button>
+    <button class="modal-close" id="emailVerifyClose"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-x"/></svg></button>
     <div class="modal-head">
       <h3>Подтвердите почту</h3>
       <p id="emailVerifySub">Мы отправили 6-значный код на вашу почту</p>
@@ -602,7 +626,7 @@
 
 <div class="modal-overlay" id="forgotPasswordModal">
   <div class="modal-box" style="position:relative;">
-    <button class="modal-close" id="forgotPasswordClose">✕</button>
+    <button class="modal-close" id="forgotPasswordClose"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-x"/></svg></button>
     <div class="modal-head">
       <h3>Восстановление пароля</h3>
       <p id="forgotPasswordSub">Укажите email — пришлём ссылку для сброса пароля</p>
@@ -618,7 +642,7 @@
 
 <div class="modal-overlay" id="resetPasswordModal">
   <div class="modal-box" style="position:relative;">
-    <button class="modal-close" id="resetPasswordClose">✕</button>
+    <button class="modal-close" id="resetPasswordClose"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-x"/></svg></button>
     <div class="modal-head">
       <h3>Новый пароль</h3>
       <p>Придумайте новый пароль для входа</p>
@@ -633,7 +657,7 @@
 
 <div class="modal-overlay" id="reviewModal">
   <div class="modal-box" style="position:relative;">
-    <button class="modal-close" id="reviewClose">✕</button>
+    <button class="modal-close" id="reviewClose"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-x"/></svg></button>
     <div class="modal-head">
       <h3>Оставить отзыв</h3>
       <p>Ваша оценка поможет другим продавцам</p>
@@ -1037,11 +1061,11 @@
         <b>Поддержка MySavdo</b>
         <span><i class="support-online-dot"></i>Обычно отвечаем в течение часа</span>
       </div>
-      <button class="support-close" id="supportClose" type="button">✕</button>
+      <button class="support-close" id="supportClose" type="button"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-x"/></svg></button>
     </div>
     <div class="support-body" id="supportBody">
       <div class="support-welcome" id="supportWelcome">
-        <div class="support-welcome-icon">👋</div>
+        <div class="support-welcome-icon"><svg class="icon icon-lg" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-smile"/></svg></div>
         <b>Здравствуйте!</b>
         <p>Напишите нам, если что-то не работает или есть вопрос по MySavdo — администратор ответит прямо здесь.</p>
       </div>
@@ -1093,7 +1117,7 @@
           <span class="rec-dot"></span>
           <span class="rec-label">Идёт запись</span>
           <span class="rec-timer" id="recTimer">0:00</span>
-          <button type="button" class="rec-cancel" id="recCancel" title="Отменить запись">✕</button>
+          <button type="button" class="rec-cancel" id="recCancel" title="Отменить запись"><svg class="icon icon-sm" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-x"/></svg></button>
         </div>
         <input type="text" id="chatReplyInput" placeholder="Написать клиенту…" autocomplete="off">
         <input type="file" id="chatPhotoInput" accept="image/*" style="display:none;">
@@ -1164,7 +1188,7 @@
             <li>Создайте группу в Telegram и добавьте туда бота — группа появится здесь сама</li>
           </ol>
         </div>
-        <button type="button" class="tg-groups-hint-close" id="tgGroupsHintClose" aria-label="Скрыть подсказку">✕</button>
+        <button type="button" class="tg-groups-hint-close" id="tgGroupsHintClose" aria-label="Скрыть подсказку"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-x"/></svg></button>
       </div>
       <div class="dm-list" id="tgGroupsList"><div class="notif-empty">Загрузка…</div></div>
     </div>
@@ -1202,7 +1226,7 @@
 
 <div class="modal-overlay" id="tgStoryModal">
   <div class="modal-box">
-    <button class="modal-close" id="tgStoryModalClose">✕</button>
+    <button class="modal-close" id="tgStoryModalClose"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-x"/></svg></button>
     <div class="modal-head">
       <h3>Опубликовать в Telegram</h3>
       <p>Текст, фото или видео — от имени бота, в выбранные группы</p>
@@ -1234,7 +1258,7 @@
         </div>
       </div>
       <button class="story-mute-btn" id="storyMuteBtn" type="button" aria-label="Включить звук">🔇</button>
-      <button class="story-viewer-close" id="storyViewerClose" type="button" aria-label="Закрыть">✕</button>
+      <button class="story-viewer-close" id="storyViewerClose" type="button" aria-label="Закрыть"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-x"/></svg></button>
     </div>
     <div class="story-viewer-media" id="storyViewerMedia">
       <video id="storyVideo" playsinline muted></video>
@@ -1253,13 +1277,13 @@
 </div>
 
 <div class="lightbox-overlay" id="lightboxOverlay">
-  <button type="button" class="lightbox-close" id="lightboxClose" aria-label="Закрыть">✕</button>
+  <button type="button" class="lightbox-close" id="lightboxClose" aria-label="Закрыть"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-x"/></svg></button>
   <img id="lightboxImg" alt="Фото" src="">
 </div>
 
 <div class="modal-overlay" id="searchModal">
   <div class="modal-box">
-    <button class="modal-close" id="searchModalClose">✕</button>
+    <button class="modal-close" id="searchModalClose"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-x"/></svg></button>
     <div class="modal-head">
       <h3>Поиск</h3>
       <p>Магазины и люди на MySavdo — по юзернейму или названию</p>
@@ -1285,7 +1309,7 @@
 
 <div class="modal-overlay" id="funnelStagesModal">
   <div class="modal-box">
-    <button class="modal-close" id="funnelStagesClose">✕</button>
+    <button class="modal-close" id="funnelStagesClose"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-x"/></svg></button>
     <div class="modal-head">
       <h3>Колонки воронки</h3>
       <p>5 стандартных этапов + свои — назовите как угодно, перетащите ⠿ чтобы изменить порядок, переключателем — скройте лишние</p>
@@ -1303,7 +1327,7 @@
 
 <div class="modal-overlay" id="journeyModal">
   <div class="modal-box journey-box">
-    <button class="modal-close" id="journeyClose">✕</button>
+    <button class="modal-close" id="journeyClose"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-x"/></svg></button>
 
     <div class="journey-header">
       <div class="journey-level-ring" id="journeyLevelRing">
@@ -1326,7 +1350,7 @@
 
 <div class="modal-overlay" id="accountsModal">
   <div class="modal-box">
-    <button class="modal-close" id="accountsModalClose">✕</button>
+    <button class="modal-close" id="accountsModalClose"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-x"/></svg></button>
     <div class="modal-head">
       <h3>Аккаунты</h3>
       <p>Переключайтесь между своими магазинами в один клик — без пароля</p>
@@ -1374,7 +1398,7 @@
 
 <div class="modal-overlay" id="telegramModal">
   <div class="modal-box">
-    <button class="modal-close" id="telegramModalClose">✕</button>
+    <button class="modal-close" id="telegramModalClose"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-x"/></svg></button>
     <div class="modal-head">
       <h3>Подключить Telegram</h3>
       <p>Сообщения из вашего бота будут сами становиться заявками в воронке</p>
@@ -1402,7 +1426,7 @@
 
 <div class="modal-overlay" id="instagramModal">
   <div class="modal-box">
-    <button class="modal-close" id="instagramModalClose">✕</button>
+    <button class="modal-close" id="instagramModalClose"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-x"/></svg></button>
     <div class="modal-head">
       <h3>Подключить Instagram</h3>
       <p>Сообщения из Direct будут сами становиться заявками в воронке</p>
@@ -1428,7 +1452,7 @@
 
 <div class="modal-overlay" id="profileModal">
   <div class="modal-box">
-    <button class="modal-close" id="profileClose">✕</button>
+    <button class="modal-close" id="profileClose"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-x"/></svg></button>
     <div class="modal-head">
       <h3>Профиль и настройки</h3>
       <p>Фото, название магазина, почта и пароль</p>
@@ -1461,7 +1485,7 @@
 
 <div class="modal-overlay" id="clientInfoModal">
   <div class="modal-box">
-    <button class="modal-close" id="clientInfoClose">✕</button>
+    <button class="modal-close" id="clientInfoClose"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-x"/></svg></button>
     <div class="client-info-head">
       <div class="profile-avatar-preview" id="clientInfoAvatar"><span>?</span></div>
       <div class="client-info-head-txt">
@@ -1494,7 +1518,7 @@
 
 <div class="modal-overlay" id="orderExtractModal">
   <div class="modal-box">
-    <button class="modal-close" id="orderExtractClose">✕</button>
+    <button class="modal-close" id="orderExtractClose"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-x"/></svg></button>
     <div class="modal-head">
       <h3><svg class="icon icon-sm" viewBox="0 0 24 24" style="vertical-align:-3px;margin-right:6px;"><use href="#icon-sparkle"/></svg>ИИ: детали заказа</h3>
       <p>Разбираю последние сообщения в переписке — ничего не выдумываю, только то, что реально сказано</p>
@@ -1511,7 +1535,7 @@
 
 <div class="modal-overlay" id="deleteReasonModal">
   <div class="modal-box">
-    <button class="modal-close" id="deleteReasonClose">✕</button>
+    <button class="modal-close" id="deleteReasonClose"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-x"/></svg></button>
     <div class="modal-head">
       <h3>Удалить заявку «<span id="deleteReasonClientName">клиента</span>»?</h3>
       <p>Это действие нельзя отменить. Причина поможет увидеть, почему вообще теряются клиенты, а не гадать по памяти.</p>
@@ -1545,7 +1569,7 @@
 
 <div class="modal-overlay" id="employeeLoginModal">
   <div class="modal-box secret-code-box">
-    <button class="modal-close" id="employeeLoginClose">✕</button>
+    <button class="modal-close" id="employeeLoginClose"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-x"/></svg></button>
     <div class="secret-code-icon"><svg class="icon icon-lg" viewBox="0 0 24 24"><use href="#icon-users"/></svg></div>
     <h3>Вход сотрудника</h3>
     <p class="modal-sub">Введите ID и пароль, которые вам выдал владелец магазина</p>
@@ -1560,7 +1584,7 @@
 
 <div class="modal-overlay" id="createShopModal">
   <div class="modal-box secret-code-box">
-    <button class="modal-close" id="createShopClose">✕</button>
+    <button class="modal-close" id="createShopClose"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-x"/></svg></button>
     <div class="secret-code-icon"><svg class="icon icon-lg" viewBox="0 0 24 24"><use href="#icon-bag"/></svg></div>
     <h3>Создать магазин</h3>
     <p class="modal-sub">Магазин можно расширять сотрудниками. Юзернейм — латиница, цифры, «_», 3–24 символа</p>
@@ -1578,7 +1602,7 @@
 
 <div class="modal-overlay" id="employeesModal">
   <div class="modal-box admin-box">
-    <button class="modal-close" id="employeesClose">✕</button>
+    <button class="modal-close" id="employeesClose"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-x"/></svg></button>
     <div class="modal-head">
       <h3>Сотрудники магазина</h3>
       <p class="modal-sub">@<span id="employeesShopUsername"></span></p>
@@ -1626,7 +1650,7 @@
 
 <div class="modal-overlay" id="joinShopModal">
   <div class="modal-box">
-    <button class="modal-close" id="joinShopClose">✕</button>
+    <button class="modal-close" id="joinShopClose"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-x"/></svg></button>
     <div class="modal-head">
       <h3>Стать сотрудником</h3>
       <p>Найдите магазин по юзернейму и подайте заявку</p>
@@ -1646,7 +1670,7 @@
 
 <div class="modal-overlay" id="payModal">
   <div class="modal-box">
-    <button class="modal-close" id="payClose">✕</button>
+    <button class="modal-close" id="payClose"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-x"/></svg></button>
     <div class="modal-head">
       <h3>Оплата тарифа <span id="payPlanTitle">«Стандарт»</span></h3>
       <p>Сумма к оплате: <b id="payAmount">79 сомони</b></p>
@@ -1695,7 +1719,7 @@
   <div class="tour-card" id="tourCard">
     <div class="tour-card-head">
       <div class="tour-badge"><svg class="icon icon-sm" viewBox="0 0 24 24"><use href="#icon-lime"/></svg><span id="tourStepLabel">1/5</span></div>
-      <button class="tour-skip" id="tourSkip">Пропустить тур ✕</button>
+      <button class="tour-skip" id="tourSkip">Пропустить тур <svg class="icon icon-sm" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-x"/></svg></button>
     </div>
     <h4 class="tour-title" id="tourTitle">Заголовок</h4>
     <p class="tour-text" id="tourText">Описание кнопки.</p>
@@ -1735,7 +1759,7 @@
           <div class="ai-guide-mini-avatar"><svg class="icon icon-sm" viewBox="0 0 24 24"><use href="#icon-lime"/></svg></div>
           <div><b>Лайм</b><span>ИИ-гид по сайту</span></div>
         </div>
-        <button type="button" class="ai-guide-close" id="aiGuideClose">✕</button>
+        <button type="button" class="ai-guide-close" id="aiGuideClose"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-x"/></svg></button>
       </div>
       <div class="ai-guide-chat" id="aiGuideChat"></div>
       <form class="ai-guide-form" id="aiGuideForm">
