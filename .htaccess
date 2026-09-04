@@ -1,0 +1,6 @@
+RewriteEngine On
+RewriteRule ^api/telegram/webhook/([^/]+)/?$ backend/api/telegram-webhook.php?bot_token=$1 [QSA,L]
+
+<FilesMatch "(\.env$|\.log$|\.sqlite3$|\.sqlite3-.*$|\.md$|^cookies\.txt$|^admin-reset-once\.php$)">
+    Require all denied
+</FilesMatch>

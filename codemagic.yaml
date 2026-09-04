@@ -1,0 +1,33 @@
+workflows:
+  ios-unsigned:
+    name: MySavdo iOS (unsigned — для установки через Sideloadly/AltStore)
+    instance_type: mac_mini_m2
+    working_directory: mobile
+    environment:
+      node: 22
+    scripts:
+      - name: npm ci
+        script: npm ci
+      - name: cap sync ios
+        script: npx cap sync ios
+      - name: Архивация без подписи
+        script: |
+          xcodebuild -project ios/App/App.xcodeproj \
+            -scheme App \
+            -configuration Release \
+            -sdk iphoneos \
+            -archivePath build/App.xcarchive \
+            CODE_SIGNING_ALLOWED=NO \
+            CODE_SIGNING_REQUIRED=NO \
+            CODE_SIGN_IDENTITY="" \
+            archive
+      - name: Собрать .ipa вручную (xcodebuild -exportArchive тут не подходит — ему нужна подпись)
+        script: |
+          mkdir -p build/Payload
+          cp -r build/App.xcarchive/Products/Applications/App.app build/Payload/
+          cd build && zip -r MySavdo-unsigned.ipa Payload
+    artifacts:
+      # Путь неоднозначен из-за working_directory — перечисляем оба варианта,
+      # несовпавший шаблон Codemagic просто проигнорирует.
+      - build/MySavdo-unsigned.ipa
+      - mobile/build/MySavdo-unsigned.ipa

@@ -1,0 +1,47 @@
+.env
+cookies.txt
+.claude/settings.local.json
+
+# Мусор со старой debug-сессии — "ю" содержит утёкший в открытом виде
+# GROQ_API_KEY/proxy-secret, sess_* в корне — забытая тестовая PHP-сессия.
+# Оставлены на диске, но не должны попасть в git (см. чат с Claude Code).
+/ю
+/sess_fde862dc42ed17f1d801e0360ab982d5
+
+/database/*.sqlite3
+/database/*.sqlite3-*
+/database/*.json
+/database/*.json.migrated
+/database/php-error.log
+/database/sessions/
+
+# backend/database/ — устаревшая копия из старой структуры проекта (код её
+# больше не использует, актуальная БД — только /database/, см. backend/config/db.php).
+# Оставлена на диске как есть, но не должна попасть в git: настоящие
+# пользовательские данные, лог и файлы сессий более старого снепшота.
+/backend/database/*.sqlite3
+/backend/database/*.sqlite3-*
+/backend/database/*.json
+/backend/database/*.json.migrated
+/backend/database/php-error.log
+/backend/database/sessions/
+
+# mobile/ (Capacitor: Android + iOS приложение)
+/mobile/node_modules/
+/mobile/build-output/
+/mobile/android/local.properties
+/mobile/android/app/keystore.properties
+/mobile/android/app/*.keystore
+/mobile/android/.gradle/
+/mobile/android/app/build/
+/mobile/android/build/
+/mobile/android/capacitor-cordova-android-plugins/build/
+/mobile/android/**/.cxx/
+
+# mobile/ios/ — своя вложенная .gitignore (mobile/ios/.gitignore) уже покрывает
+# Pods/, DerivedData/, xcuserdata/ и т.п.; продублировано на верхнем уровне
+# на случай инструментов, читающих только корневой .gitignore.
+/mobile/ios/App/Pods/
+/mobile/ios/App/build/
+/mobile/ios/DerivedData/
+/mobile/ios/**/xcuserdata/

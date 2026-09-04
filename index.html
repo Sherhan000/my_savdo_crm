@@ -1,0 +1,1765 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0a2118">
+<meta name="description" content="MySavdo — простая CRM для продавцов в соцсетях. Заявки из Instagram, Telegram и WhatsApp в одном экране.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<title>MySavdo — CRM для продавцов в соцсетях</title>
+
+<link rel="manifest" href="assets/manifest.webmanifest">
+<link rel="icon" type="image/png" sizes="192x192" href="assets/icons/icon-192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="assets/icons/icon-512.png">
+<link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="MySavdo">
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-PW4MJ1Q1CJ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-PW4MJ1Q1CJ');
+</script>
+<link rel="stylesheet" href="assets/css/style.css">
+<script src="https://accounts.google.com/gsi/client" async defer></script>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/ru_RU/sdk.js"></script>
+</head>
+<body>
+<div id="fb-root"></div>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+<defs>
+<g id="icon-bag" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M7 8h10l-1 11a2 2 0 0 1-2 2H10a2 2 0 0 1-2-2L7 8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/>
+</g>
+<g id="icon-home" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M4 11L12 4l8 7"/><path d="M6 10v10h5v-6h2v6h5V10"/>
+</g>
+<g id="icon-users" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+  <circle cx="9" cy="8" r="3.2"/><path d="M3 20c0-3.6 2.8-6.2 6-6.2s6 2.6 6 6.2"/><circle cx="17.3" cy="9" r="2.3"/><path d="M15.8 14.1c2.6.5 4.7 2.6 4.7 5.9"/>
+</g>
+<g id="icon-funnel" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linejoin="round" stroke-linecap="round">
+  <polygon points="3,4 21,4 14,13 14,20 10,22 10,13"/>
+</g>
+<g id="icon-chart" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+  <line x1="4" y1="20" x2="20" y2="20"/><line x1="7" y1="20" x2="7" y2="13"/><line x1="12" y1="20" x2="12" y2="6"/><line x1="17" y1="20" x2="17" y2="10"/>
+</g>
+<g id="icon-message" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linejoin="round" stroke-linecap="round">
+  <rect x="3" y="4" width="18" height="13" rx="4"/><polygon points="8,17 8,21 13,17" fill="currentColor" stroke="none"/>
+</g>
+<g id="icon-send" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round">
+  <polygon points="3,11 21,3 13,21 11,13"/>
+</g>
+<g id="icon-x" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round">
+  <line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/>
+</g>
+<g id="icon-chevron-down" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+  <polyline points="6,9 12,15 18,9"/>
+</g>
+<g id="icon-check" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <polyline points="20,6 9,17 4,12"/>
+</g>
+<g id="icon-arrow-right" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+  <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12,5 19,12 12,19"/>
+</g>
+<g id="icon-bell" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M6 9a6 6 0 0 1 12 0c0 6 2 8 2 8H4s2-2 2-8z"/><path d="M10 20a2 2 0 0 0 4 0"/>
+</g>
+<g id="icon-sparkle" fill="currentColor" stroke="none">
+  <path d="M12 2l1.8 5.2L19 9l-5.2 1.8L12 16l-1.8-5.2L5 9l5.2-1.8L12 2z"/>
+</g>
+<g id="icon-search" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+  <circle cx="11" cy="11" r="6.5"/><line x1="20" y1="20" x2="16" y2="16"/>
+</g>
+<g id="icon-clock" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+  <circle cx="12" cy="12" r="8.5"/><polyline points="12,7.5 12,12 15,14.5"/>
+</g>
+<g id="icon-trend" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+  <polyline points="3,17 9,11 13,15 21,6"/><polyline points="14,6 21,6 21,13"/>
+</g>
+<g id="icon-logout" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16,17 21,12 16,7"/><line x1="21" y1="12" x2="9" y2="12"/>
+</g>
+<g id="icon-camera" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+  <rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r="1" fill="currentColor" stroke="none"/>
+</g>
+<g id="icon-plane" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round">
+  <path d="M21 4L3 11l6 2 2 6 3-4 4 3z"/>
+</g>
+<g id="icon-plus" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round">
+  <line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/>
+</g>
+<g id="icon-filter" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+  <line x1="4" y1="6" x2="20" y2="6"/><line x1="7" y1="12" x2="17" y2="12"/><line x1="10" y1="18" x2="14" y2="18"/>
+</g>
+<g id="icon-trash" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+  <polyline points="4,7 20,7"/><path d="M6 7l1 13a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2l1-13"/><path d="M9 7V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v3"/>
+</g>
+<g id="icon-mic" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+  <rect x="9" y="2" width="6" height="12" rx="3"/><path d="M5 10a7 7 0 0 0 14 0"/><line x1="12" y1="19" x2="12" y2="22"/><line x1="8" y1="22" x2="16" y2="22"/>
+</g>
+<g id="icon-command" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+  <rect x="4" y="4" width="6" height="6" rx="2"/><rect x="14" y="4" width="6" height="6" rx="2"/><rect x="4" y="14" width="6" height="6" rx="2"/><rect x="14" y="14" width="6" height="6" rx="2"/>
+</g>
+<g id="icon-globe" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+  <circle cx="12" cy="12" r="8.5"/><path d="M3.5 12h17"/><path d="M12 3.5c2.6 2.3 4 5.3 4 8.5s-1.4 6.2-4 8.5c-2.6-2.3-4-5.3-4-8.5s1.4-6.2 4-8.5z"/>
+</g>
+<g id="icon-lime" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+  <circle cx="12" cy="13" r="8" fill="currentColor" stroke="none" opacity=".18"/>
+  <circle cx="12" cy="13" r="8"/>
+  <path d="M12 5c1.2 1.6 1.2 3 0 4.2M8.4 6.6c1.4 1.1 1.9 2.4 1.3 4M15.6 6.6c-1.4 1.1-1.9 2.4-1.3 4" opacity=".55"/>
+  <path d="M9 2.4c1.4-.6 3.6-.6 5 0-.7 1.3-1.5 1.9-2.5 1.9S9.7 3.7 9 2.4z" fill="currentColor" stroke="none"/>
+  <circle cx="9.3" cy="11.6" r=".9" fill="currentColor" stroke="none"/>
+  <circle cx="14.7" cy="11.6" r=".9" fill="currentColor" stroke="none"/>
+  <path d="M9.2 15.6c1.6 1.3 4 1.3 5.6 0" stroke-width="1.5"/>
+</g>
+<g id="icon-target" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+  <circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r=".6" fill="currentColor"/>
+</g>
+<g id="icon-star" fill="currentColor" stroke="none">
+  <path d="M12 2.6l2.85 5.86 6.42.76-4.72 4.46 1.25 6.36L12 16.98l-5.8 3.06 1.25-6.36-4.72-4.46 6.42-.76L12 2.6z"/>
+</g>
+<g id="icon-mail" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+  <rect x="3" y="5" width="18" height="14" rx="3"/><path d="M4 7l8 6 8-6"/>
+</g>
+<g id="icon-eye" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/>
+</g>
+<g id="icon-eye-off" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M3 3l18 18"/><path d="M10.6 5.2C11.1 5.1 11.5 5 12 5c6.5 0 10 7 10 7a17.6 17.6 0 0 1-3.2 4.2M6.6 6.6C3.9 8.3 2 12 2 12s3.5 7 10 7c1.4 0 2.6-.3 3.7-.8"/><path d="M9.5 9.8A3 3 0 0 0 12 15a3 3 0 0 0 2.2-.9"/>
+</g>
+<g id="icon-copy" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+  <rect x="9" y="9" width="12" height="12" rx="2.5"/><path d="M6 15H4.5A2.5 2.5 0 0 1 2 12.5v-8A2.5 2.5 0 0 1 4.5 2h8A2.5 2.5 0 0 1 15 4.5V6"/>
+</g>
+<g id="icon-reply" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M9 6L3 12l6 6"/><path d="M3 12h11a7 7 0 0 1 7 7v1"/>
+</g>
+<g id="icon-thumb-up" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M7 10v11H4a1 1 0 0 1-1-1v-9a1 1 0 0 1 1-1h3zM7 10l4.5-7a2 2 0 0 1 3.5 1.6L14 9h5a2 2 0 0 1 2 2.3l-1.3 8A2 2 0 0 1 17.7 21H10a3 3 0 0 1-3-3"/>
+</g>
+<g id="icon-thumb-down" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M17 14V3h3a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1h-3zM17 14l-4.5 7a2 2 0 0 1-3.5-1.6L10 15H5a2 2 0 0 1-2-2.3l1.3-8A2 2 0 0 1 6.3 3H14a3 3 0 0 1 3 3"/>
+</g>
+<g id="icon-smile" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+  <circle cx="12" cy="12" r="9.3"/><path d="M8.5 14c.9 1.3 2.1 2 3.5 2s2.6-.7 3.5-2"/><path d="M8.6 9.5h.01M15.4 9.5h.01"/>
+</g>
+<g id="icon-checkbox" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+  <rect x="3" y="3" width="18" height="18" rx="4"/><path d="M7.5 12.3l3 3 6-6.6"/>
+</g>
+<g id="icon-heart" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M12 20.2s-7.6-4.6-10-9.3C.4 7.7 2 4.3 5.4 3.6c2-.4 3.9.5 5 2.2a5.7 5.7 0 0 1 1.6-1.8c1.5-1.1 3.6-1.2 5.2-.3 2.6 1.5 3.4 4.9 1.8 8-2.4 4.7-7 8.5-7 8.5z"/>
+</g>
+<g id="icon-play" fill="currentColor" stroke="none">
+  <path d="M8 5.5v13l11-6.5-11-6.5z"/>
+</g>
+<g id="icon-video" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+  <rect x="2.5" y="6" width="14" height="12" rx="2.5"/><path d="M16.5 10.2l5-2.9v9.4l-5-2.9"/>
+</g>
+<g id="icon-pin" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M12 2l3 3-1.5 5.5L18 14l-6 1-1 6-1-6-6-1 4.5-3.5L7 5l3-3 2 2z"/>
+</g>
+<g id="icon-download" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M12 3v12"/><path d="M7 10l5 5 5-5"/><path d="M4 19h16"/>
+</g>
+<g id="icon-key" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+  <circle cx="8" cy="15" r="3.5"/><path d="M10.5 12.5L20 3"/><path d="M17 6l3 3"/><path d="M14 9l2 2"/>
+</g>
+</defs>
+</svg>
+
+<section class="screen active" id="screen-welcome">
+  <div class="bg-orbs" aria-hidden="true">
+    <span class="orb orb-a"></span>
+    <span class="orb orb-b"></span>
+    <span class="orb orb-c"></span>
+    <span class="bg-grid"></span>
+    <span class="bg-particles"></span>
+  </div>
+  <div class="welcome-inner">
+    <div class="welcome-mark"><svg class="icon icon-lg" viewBox="0 0 24 24"><use href="#icon-bag"/></svg></div>
+    <div class="welcome-eyebrow" data-i18n="welcome.eyebrow">CRM для продавцов в соцсетях</div>
+    <h1 data-i18n-html="welcome.title">Добро пожаловать <br><span>в MySavdo</span></h1>
+    <p class="welcome-sub" data-i18n="welcome.sub">Все заявки из Instagram, Telegram и WhatsApp — в одном экране. Без обучения, без таблиц, без потерянных клиентов.</p>
+    <div class="welcome-actions">
+      <button class="btn btn-primary" id="btnLaunch" data-i18n="welcome.launch">Запуск →</button>
+    </div>
+  </div>
+</section>
+
+<section class="screen" id="screen-loading">
+  <div class="bg-orbs" aria-hidden="true">
+    <span class="orb orb-a"></span>
+    <span class="orb orb-b"></span>
+    <span class="orb orb-c"></span>
+    <span class="bg-grid"></span>
+  </div>
+  <div class="loading-inner">
+    <div class="loading-ring">
+      <span class="loading-orbit"></span>
+      <svg class="loading-ring-svg" viewBox="0 0 120 120"><circle class="loading-ring-bg" cx="60" cy="60" r="52"/><circle class="loading-ring-fg" id="loadingRingFg" cx="60" cy="60" r="52"/></svg>
+      <div class="loading-word">MY<span class="dot">SAVDO</span></div>
+    </div>
+    <div class="loading-track"><div class="loading-fill" id="loadingFill"></div></div>
+    <div class="loading-pct" id="loadingPct">Загрузка… 0%</div>
+    <div class="loading-fact" id="loadingFact"></div>
+  </div>
+</section>
+
+<section class="screen" id="screen-onboarding">
+  <div class="bg-orbs bg-orbs-light" aria-hidden="true">
+    <span class="orb orb-a"></span>
+    <span class="orb orb-b"></span>
+    <span class="bg-grid"></span>
+  </div>
+  <div class="ob-top">
+    <div style="font-family:'Unbounded';font-weight:700;font-size:14px;">MySavdo</div>
+    <button class="ob-skip" id="obSkip" data-i18n="ob.skip">Пропустить</button>
+  </div>
+  <div class="ob-track">
+    <svg class="ob-thread" id="obThread" viewBox="0 0 800 300" preserveAspectRatio="none">
+      <path id="obPath" d="M 60 50 Q 260 10 400 50 T 740 50"></path>
+    </svg>
+
+    <div class="ob-slide active" data-slide="0">
+      <div class="ob-icon"><svg class="icon icon-lg" viewBox="0 0 24 24"><use href="#icon-message"/></svg></div>
+      <h2 data-i18n="ob.s0.title">Заявки теряются раньше, чем доходят до продажи</h2>
+      <p data-i18n="ob.s0.text">Клиент написал в Direct в 23:00 — а утром сообщение уже похоронено под другими чатами.</p>
+    </div>
+    <div class="ob-slide" data-slide="1">
+      <div class="ob-icon"><svg class="icon icon-lg" viewBox="0 0 24 24"><use href="#icon-clock"/></svg></div>
+      <h2 data-i18n="ob.s1.title">Таблицы устаревают быстрее, чем вы их заполняете</h2>
+      <p data-i18n="ob.s1.text">Excel с клиентами никто не обновляет вовремя — и в итоге там просто неправда.</p>
+    </div>
+    <div class="ob-slide" data-slide="2">
+      <div class="ob-icon"><svg class="icon icon-lg" viewBox="0 0 24 24"><use href="#icon-funnel"/></svg></div>
+      <h2 data-i18n="ob.s2.title">MySavdo сводит всё в один экран</h2>
+      <p data-i18n="ob.s2.text">Instagram, Telegram и WhatsApp — в едином инбоксе. Каждое сообщение само становится карточкой заявки.</p>
+    </div>
+    <div class="ob-slide" data-slide="3">
+      <div class="ob-icon"><svg class="icon icon-lg" viewBox="0 0 24 24"><use href="#icon-arrow-right"/></svg></div>
+      <h2 data-i18n="ob.s3.title">Готовы принимать заявки по-человечески?</h2>
+      <p data-i18n="ob.s3.text">Регистрация за 3 минуты. Первый месяц — бесплатно, без карты.</p>
+    </div>
+  </div>
+  <div class="ob-bottom">
+    <div class="ob-dots">
+      <span class="ob-dot active"></span><span class="ob-dot"></span><span class="ob-dot"></span><span class="ob-dot"></span>
+    </div>
+    <button class="btn btn-primary" id="obNext" data-i18n="ob.next">Далее →</button>
+  </div>
+</section>
+
+<section class="screen" id="screen-landing">
+  <header class="site-header">
+    <div class="container">
+      <div class="logo" data-tour="logo"><div class="logo-mark js-logo-mark"><svg class="icon icon-sm" viewBox="0 0 24 24"><use href="#icon-bag"/></svg></div>MySavdo</div>
+      <nav class="nav-links" data-tour="nav">
+        <a href="#features" data-i18n="nav.features">Возможности</a>
+        <a href="#pricing" data-i18n="nav.pricing">Тарифы</a>
+        <a href="#steps" data-i18n="nav.steps">Как это работает</a>
+        <a href="#reviews" data-i18n="nav.reviews">Отзывы</a>
+        <a href="#faq" data-i18n="nav.faq">Вопросы</a>
+      </nav>
+      <a href="#reviews" class="site-rating-badge" id="siteRatingBadge" style="display:none;">
+        <svg class="icon icon-sm" viewBox="0 0 24 24"><use href="#icon-star"/></svg>
+        <span id="siteRatingValue">0</span>
+        <span class="site-rating-count" id="siteRatingCount"></span>
+      </a>
+      <button class="icon-btn-header" id="btnHeaderSearch" type="button" title="Найти магазин или человека"><svg class="icon icon-sm" viewBox="0 0 24 24"><use href="#icon-search"/></svg></button>
+      <div class="header-actions" id="headerActions">
+        <button class="btn btn-outline btn-sm" id="btnReplay" data-i18n="nav.replay" data-tour="replay">↺ Обучалка</button>
+        <button class="btn btn-primary btn-sm" id="btnOpenAuth" data-i18n="nav.register" data-tour="register">Регистрация</button>
+      </div>
+      <button class="burger" id="btnBurger" type="button" aria-label="Меню" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="mobile-menu" id="mobileMenu">
+      <nav class="mobile-menu-links">
+        <a href="#features" data-i18n="nav.features">Возможности</a>
+        <a href="#pricing" data-i18n="nav.pricing">Тарифы</a>
+        <a href="#steps" data-i18n="nav.steps">Как это работает</a>
+        <a href="#reviews" data-i18n="nav.reviews">Отзывы</a>
+        <a href="#faq" data-i18n="nav.faq">Вопросы</a>
+      </nav>
+      <div class="mobile-menu-foot">
+        <button class="btn btn-outline" id="btnReplayMobile" data-i18n="nav.replay">↺ Обучалка</button>
+        <button class="btn btn-primary" id="btnOpenAuthMobile" data-i18n="nav.register">Регистрация</button>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero" id="heroSection">
+    <div class="hero-glow" id="heroGlow"></div>
+    <div class="container">
+      <div class="eyebrow" data-i18n="hero.eyebrow">Собираем заявки из соцсетей в одном месте</div>
+      <h1 data-i18n-html="hero.title">Заявки теряются раньше,<br>чем доходят до <em>продажи</em></h1>
+      <p class="lead" data-i18n="hero.lead">MySavdo собирает клиентов из Instagram, Telegram и WhatsApp в единый экран — без обучения и сложных настроек.</p>
+      <div class="hero-actions">
+        <button class="btn btn-primary" id="btnHeroStart" data-tour="hero-start" data-i18n="hero.start">Начать бесплатно</button>
+        <button class="btn btn-outline" onclick="document.getElementById('pricing').scrollIntoView({behavior:'smooth'})" data-i18n="hero.pricing">Смотреть тарифы</button>
+      </div>
+      <div class="pain-grid">
+        <div class="pain-card"><div class="pain-emoji"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-message"/></svg></div><h3 data-i18n="hero.pain1.h">Заявки теряются</h3><p data-i18n="hero.pain1.p">Клиент написал в Direct в 23:00 — а утром сообщение уже похоронено под другими чатами.</p></div>
+        <div class="pain-card"><div class="pain-emoji"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-clock"/></svg></div><h3 data-i18n="hero.pain2.h">Таблицы устаревают</h3><p data-i18n="hero.pain2.p">Excel с клиентами никто не обновляет вовремя, и в итоге там просто неправда.</p></div>
+        <div class="pain-card"><div class="pain-emoji"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-chart"/></svg></div><h3 data-i18n="hero.pain3.h">Нет общей картины</h3><p data-i18n="hero.pain3.p">Сколько заявок сегодня, кто в работе — приходится вспоминать, а не смотреть.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="features">
+    <div class="container">
+      <div class="section-head">
+        <div class="section-tag" data-i18n="features.tag">Возможности</div>
+        <h2 data-i18n="features.h">Всё, что нужно продавцу в одном экране</h2>
+      </div>
+
+      <div class="feature-row">
+        <div>
+          <div class="feature-num">01</div>
+          <h3>Единый чат для всех соцсетей</h3>
+          <p>Сообщения из Instagram, Telegram и WhatsApp приходят в один инбокс. Отвечаете не выходя из CRM — заявка сама привязывается к клиенту.</p>
+          <ul class="feature-list">
+            <li>Не нужно переключаться между приложениями</li>
+            <li>История переписки хранится в карточке клиента</li>
+            <li>Уведомление, если клиент ждёт ответа больше часа</li>
+          </ul>
+        </div>
+        <div class="feature-visual">
+          <div class="ai-block" style="margin-bottom:10px;">
+            <div class="ai-tag"><span class="dot"></span>Рахимов З. · Telegram</div>
+            Здравствуйте! Есть это платье в наличии?
+          </div>
+          <div class="ai-block">
+            <div class="ai-tag" style="color:#48d69a"><span class="dot"></span>Вы</div>
+            Здравствуйте! Да, есть. Какой размер вам нужен?
+          </div>
+        </div>
+      </div>
+
+      <div class="feature-row">
+        <div>
+          <div class="feature-num">02</div>
+          <h3>Воронка продаж, которая видна сразу</h3>
+          <p>Каждая заявка — карточка в одной из колонок. Перетащили — статус обновился.</p>
+          <ul class="feature-list">
+            <li>Видно, сколько денег «застряло» в работе</li>
+            <li>Ничего не теряется между этапами</li>
+            <li>Понятно с первого взгляда, даже без обучения</li>
+          </ul>
+        </div>
+        <div class="feature-visual" style="display:flex;gap:10px;">
+          <div style="flex:1;background:rgba(255,255,255,.06);border-radius:12px;padding:12px;color:#fff;font-size:12px;">Новые · 4</div>
+          <div style="flex:1;background:rgba(255,255,255,.06);border-radius:12px;padding:12px;color:#fff;font-size:12px;">В работе · 3</div>
+          <div style="flex:1;background:rgba(255,255,255,.06);border-radius:12px;padding:12px;color:#fff;font-size:12px;">Закрыты · 2</div>
+        </div>
+      </div>
+
+      <div class="feature-row">
+        <div>
+          <div class="feature-num">03</div>
+          <h3>Аналитика без лишних цифр</h3>
+          <p>Конверсия, средний чек, лучший источник заявок — три показателя, на которые стоит смотреть каждое утро.</p>
+          <ul class="feature-list">
+            <li>Понятно, какая соцсеть приносит продажи</li>
+            <li>Видно рост или падение по месяцам</li>
+            <li>Без графиков, в которых нужен аналитик</li>
+          </ul>
+        </div>
+        <div class="feature-visual" style="display:flex;align-items:center;justify-content:space-around;">
+          <div style="text-align:center;color:#fff;"><div class="stat-num" style="font-size:26px;">34.8%</div><div class="stat-label">Конверсия</div></div>
+          <div style="text-align:center;color:#fff;"><div class="stat-num" style="font-size:26px;">47K</div><div class="stat-label">Ср. чек, сомони</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="steps" style="padding-top:0;">
+    <div class="container">
+      <div class="section-head">
+        <div class="section-tag" data-i18n="steps.tag">Запуск за 4 шага</div>
+        <h2 data-i18n="steps.h">От регистрации до первой заявки в CRM</h2>
+      </div>
+      <div class="steps-grid">
+        <div class="step-card"><div class="step-num">1</div><h4 data-i18n="steps.s1.h">Регистрация</h4><p data-i18n="steps.s1.p">Вводите название магазина и номер телефона.</p></div>
+        <div class="step-card"><div class="step-num">2</div><h4 data-i18n="steps.s2.h">Подключаете соцсети</h4><p data-i18n="steps.s2.p">Instagram, Telegram и WhatsApp — за пару кликов в разделе интеграций.</p></div>
+        <div class="step-card"><div class="step-num">3</div><h4 data-i18n="steps.s3.h">Заявки сами приходят</h4><p data-i18n="steps.s3.p">Каждое новое сообщение от клиента становится карточкой в воронке.</p></div>
+        <div class="step-card"><div class="step-num">4</div><h4 data-i18n="steps.s4.h">Закрываете сделки</h4><p data-i18n="steps.s4.p">Отвечаете, двигаете по статусам, видите выручку в реальном времени.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="stats-band">
+        <div><div class="stat-num">5+</div><div class="stat-label" data-i18n="stats.s1">продавцов уже ведут заявки в MySavdo</div></div>
+        <div><div class="stat-num">3 мин</div><div class="stat-label" data-i18n="stats.s2">в среднем на подключение всех соцсетей</div></div>
+        <div><div class="stat-num">×1.5</div><div class="stat-label" data-i18n="stats.s3">рост конверсии после перехода с таблиц</div></div>
+        <div><div class="stat-num">0 с</div><div class="stat-label" data-i18n="stats.s4">стоит начать — бесплатный тариф навсегда</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="pricing">
+    <div class="container">
+      <div class="section-head">
+        <div class="section-tag" data-i18n="pricing.tag">Тарифы</div>
+        <h2 data-i18n="pricing.h">Цена понятная, как и сам сервис</h2>
+      </div>
+      <div class="pricing-grid">
+        <div class="price-card">
+          <h3 data-i18n="pricing.demo.h">Демо</h3>
+          <div class="price-sub" data-i18n="pricing.demo.sub">Для тех, кто только начинает принимать заявки</div>
+          <div class="price-amount"><span class="num">0</span><span class="unit" data-i18n="pricing.unit">сомони / мес</span></div>
+          <ul class="price-feats" data-i18n-html="pricing.demo.feats"><li>Только 1 месяц</li><li>Instagram или Telegram — на выбор</li><li>Базовая воронка продаж</li><li>1 пользователь</li></ul>
+          <button class="btn btn-outline" data-i18n="pricing.demo.cta">Начать бесплатно</button>
+        </div>
+        <div class="price-card popular">
+          <div class="price-badge" data-i18n="pricing.popular">ПОПУЛЯРНЫЙ</div>
+          <h3 data-i18n="pricing.std.h">Стандарт</h3>
+          <div class="price-sub" data-i18n="pricing.std.sub">Для активного продавца с заявками каждый день</div>
+          <div class="price-amount"><span class="num">79</span><span class="unit" data-i18n="pricing.unit">сомони / мес</span></div>
+          <ul class="price-feats" data-i18n-html="pricing.std.feats"><li>Безлимит заявок</li><li>Instagram или Telegram — на выбор</li><li>Полная аналитика и отчёты</li><li>Магазин: 4 сотрудника бесплатно, дальше 20 сомони за +5</li><li>Приоритетная поддержка</li></ul>
+          <button class="btn btn-primary" data-i18n="pricing.std.cta">Выбрать тариф</button>
+        </div>
+        <div class="price-card">
+          <h3 data-i18n="pricing.biz.h">Бизнес</h3>
+          <div class="price-sub" data-i18n="pricing.biz.sub">ИИ-ассистент для автоматических ответов</div>
+          <div class="price-amount"><span class="num">179</span><span class="unit" data-i18n="pricing.unit">сомони / мес</span></div>
+          <ul class="price-feats" data-i18n-html="pricing.biz.feats"><li>Всё из тарифа «Стандарт»</li><li>Instagram и Telegram — одновременно</li><li>Магазин: 4 сотрудника бесплатно, дальше 20 сомони за +5</li><li>Несколько магазинов в одном кабинете</li><li>Личный менеджер внедрения</li></ul>
+          <button class="btn btn-outline" data-i18n="pricing.biz.cta">Связаться с нами</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="reviews">
+    <div class="container">
+      <div class="section-head reviews-head">
+        <div>
+          <div class="section-tag" data-i18n="reviews.tag">Отзывы</div>
+          <h2 data-i18n="reviews.h">Что говорят продавцы</h2>
+        </div>
+        <div class="reviews-summary" id="reviewsSummary">
+          <div class="reviews-summary-score" id="reviewsAvgScore">—</div>
+          <div class="reviews-summary-stars" id="reviewsAvgStars"></div>
+          <div class="reviews-summary-count" id="reviewsCountLabel">Пока нет отзывов</div>
+        </div>
+      </div>
+      <div class="reviews-toolbar">
+        <button class="btn btn-outline btn-sm" id="btnOpenReview">
+          <svg class="icon icon-sm" viewBox="0 0 24 24"><use href="#icon-star"/></svg>
+          <span data-i18n="reviews.cta">Оставить отзыв</span>
+        </button>
+      </div>
+      <div class="reviews-grid" id="reviewsGrid"></div>
+      <div class="reviews-empty" id="reviewsEmpty">
+        <div class="empty-state-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-star"/></svg></div>
+        <h5>Пока нет отзывов</h5>
+        <p>Станьте первым, кто расскажет о своём опыте с MySavdo</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="faq">
+    <div class="container">
+      <div class="section-head">
+        <div class="section-tag" data-i18n="faq.tag">Частые вопросы</div>
+        <h2 data-i18n="faq.h">Коротко о главном</h2>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item open">
+          <button class="faq-q"><span>Я веду клиентов в Excel уже два года. Перенос данных не превратится в кошмар?</span><svg class="icon plus" viewBox="0 0 24 24"><use href="#icon-chevron-down"/></svg></button>
+          <div class="faq-a"><p>Загружаете таблицу в разделе «Мои клиенты» → «Импорт», система сама разложит имена, номера и статусы по колонкам воронки. Обычно перенос 300–500 контактов занимает 5–7 минут, и мы предупредим, если в файле что-то дублируется.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q"><span>Что будет с моими заявками, если я перестану платить за «Стандарт»?</span><svg class="icon plus" viewBox="0 0 24 24"><use href="#icon-chevron-down"/></svg></button>
+          <div class="faq-a"><p>Аккаунт мягко переходит на тариф «Демо»: история и карточки клиентов остаются доступны для чтения ещё 60 дней, но новые сообщения принимает только 1 подключённая соцсеть. Ничего не удаляется молча.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q"><span>ИИ-ассистент отвечает клиентам сам, без меня? Вдруг он пообещает лишнего</span><svg class="icon plus" viewBox="0 0 24 24"><use href="#icon-chevron-down"/></svg></button>
+          <div class="faq-a"><p>Нет, по умолчанию ИИ только предлагает черновик ответа — отправляете вы сами одним кликом. Автономный режим (тариф «Бизнес») можно включить только для типовых вопросов вроде наличия и доставки; цены и скидки ИИ никогда не придумывает.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q"><span>У меня два продавца отвечают в директ по очереди. Как понять, кто уже ответил?</span><svg class="icon plus" viewBox="0 0 24 24"><use href="#icon-chevron-down"/></svg></button>
+          <div class="faq-a"><p>В карточке клиента видно имя сотрудника, который последним отвечал, а сама заявка «занимается» на 10 минут, пока с ней работают — второй продавец увидит пометку «уже в работе» и не продублирует ответ.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q"><span>ИИ-ассистент поймёт клиента, если тот пишет не по-русски?</span><svg class="icon plus" viewBox="0 0 24 24"><use href="#icon-chevron-down"/></svg></button>
+          <div class="faq-a"><p>Да. Ассистент распознаёт язык входящего сообщения и отвечает клиенту на нём же — при этом весь интерфейс CRM остаётся на русском, вам ничего переключать не нужно.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q"><span>Можно посмотреть, откуда вообще приходят деньги — из какой соцсети?</span><svg class="icon plus" viewBox="0 0 24 24"><use href="#icon-chevron-down"/></svg></button>
+          <div class="faq-a"><p>Да, в разделе «Аналитика» есть разбивка выручки и конверсии по каждому каналу отдельно — обычно там же видно, стоит ли вообще тратить время на площадку, которая не приносит заявок.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="cta-band">
+        <h2 data-i18n="cta.h">Начните принимать заявки по-человечески уже сегодня</h2>
+        <p data-i18n="cta.p">Бесплатный тариф, без карты, без долгой настройки.</p>
+        <button class="btn btn-primary" id="btnCtaStart" data-i18n="cta.btn">Создать аккаунт бесплатно</button>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="logo" style="margin-bottom:12px;"><div class="logo-mark js-logo-mark"><svg class="icon icon-sm" viewBox="0 0 24 24"><use href="#icon-bag"/></svg></div>MySavdo</div>
+          <p style="font-size:13.5px;color:var(--muted);line-height:1.6;max-width:260px;" data-i18n="footer.desc">Простая CRM для продавцов в социальных сетях. Собираем заявки из Instagram, Telegram и WhatsApp в одном месте.</p>
+        </div>
+        <div><h5 data-i18n="footer.product">Продукт</h5><ul><li><a href="#features" data-i18n="nav.features">Возможности</a></li><li><a href="#pricing" data-i18n="nav.pricing">Тарифы</a></li><li><a href="#steps" data-i18n="nav.steps">Как это работает</a></li><li><a href="#faq" data-i18n="nav.faq">Вопросы</a></li></ul></div>
+        <div><h5 data-i18n="footer.company">Компания</h5><ul><li><a href="#" data-i18n="footer.about">О нас</a></li><li><a href="#" data-i18n="footer.blog">Блог</a></li><li><a href="#" data-i18n="footer.contacts">Контакты</a></li></ul></div>
+        <div><h5 data-i18n="footer.support">Поддержка</h5><ul><li><a href="#" data-i18n="footer.help">Помощь</a></li><li><a href="#" data-i18n="footer.reach">Связаться</a></li><li><a href="#" data-i18n="footer.tgbot">Telegram-бот</a></li></ul></div>
+      </div>
+      <div class="footer-bottom"><span data-i18n="footer.rights">© 2026 MySavdo. Все права защищены.</span><span data-i18n="footer.city">Душанбе, Таджикистан</span></div>
+    </div>
+  </footer>
+</section>
+
+<div class="modal-overlay" id="authModal">
+  <div class="modal-box" style="position:relative;">
+    <button class="modal-close" id="authClose">✕</button>
+    <div class="modal-head">
+      <h3 id="authTitle">Создать аккаунт</h3>
+      <p id="authSub">Первый месяц бесплатно, без карты</p>
+    </div>
+    <div class="modal-error" id="authError"></div>
+    <div class="social-auth-stack">
+      <div id="gsiButtonContainer" class="gsi-btn-wrap"></div>
+      <div class="gsi-not-ready" id="gsiNotReady">
+        <svg width="18" height="18" viewBox="0 0 18 18"><path fill="#4285F4" d="M17.64 9.2c0-.64-.06-1.25-.16-1.84H9v3.48h4.84c-.21 1.13-.84 2.09-1.8 2.73v2.27h2.9c1.7-1.57 2.7-3.88 2.7-6.64z"/><path fill="#34A853" d="M9 18c2.43 0 4.47-.8 5.96-2.18l-2.9-2.27c-.8.54-1.84.86-3.06.86-2.35 0-4.34-1.59-5.05-3.72H.96v2.34C2.44 15.98 5.48 18 9 18z"/><path fill="#FBBC05" d="M3.95 10.69A5.4 5.4 0 013.68 9c0-.59.1-1.16.27-1.69V4.97H.96A9 9 0 000 9c0 1.45.35 2.83.96 4.03l2.99-2.34z"/><path fill="#EA4335" d="M9 3.58c1.32 0 2.51.45 3.44 1.35l2.58-2.58C13.46.89 11.43 0 9 0 5.48 0 2.44 2.02.96 4.97l2.99 2.34C4.66 5.17 6.65 3.58 9 3.58z"/></svg>
+        <span id="gsiNotReadyText">Вход через Google ещё не настроен</span>
+      </div>
+      <button type="button" class="btn-social btn-facebook" id="btnFacebookLogin" style="display:none;">
+        <svg width="18" height="18" viewBox="0 0 18 18"><path fill="#fff" d="M18 9a9 9 0 1 0-10.4 8.9v-6.3H5.3V9h2.3V7c0-2.3 1.36-3.55 3.44-3.55.99 0 2.03.18 2.03.18v2.24h-1.14c-1.13 0-1.48.7-1.48 1.42V9h2.52l-.4 2.6h-2.12v6.3A9 9 0 0 0 18 9z"/></svg>
+        <span>Продолжить с Facebook</span>
+      </button>
+      <div class="gsi-not-ready" id="fbNotReady" style="display:none;">
+        <svg width="18" height="18" viewBox="0 0 18 18"><path fill="#1877F2" d="M18 9a9 9 0 1 0-10.4 8.9v-6.3H5.3V9h2.3V7c0-2.3 1.36-3.55 3.44-3.55.99 0 2.03.18 2.03.18v2.24h-1.14c-1.13 0-1.48.7-1.48 1.42V9h2.52l-.4 2.6h-2.12v6.3A9 9 0 0 0 18 9z"/></svg>
+        <span id="fbNotReadyText">Вход через Facebook ещё не настроен</span>
+      </div>
+      <div id="tgLoginContainer" class="gsi-btn-wrap"></div>
+      <div class="gsi-not-ready" id="tgNotReady" style="display:none;">
+        <svg width="18" height="18" viewBox="0 0 240 240"><defs><linearGradient id="tgGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2AABEE"/><stop offset="1" stop-color="#229ED9"/></linearGradient></defs><circle cx="120" cy="120" r="120" fill="url(#tgGrad)"/><path fill="#fff" d="M53 122l134-52c6-2 12 2 10 10l-23 108c-2 8-8 10-14 6l-38-28-19 18c-2 2-4 3-7 3l3-40 73-66c3-3-1-5-4-3l-90 57-39-12c-8-3-8-9 2-13z"/></svg>
+        <span id="tgNotReadyText">Вход через Telegram ещё не настроен</span>
+      </div>
+    </div>
+    <div class="modal-divider">или почтой</div>
+    <form id="authForm">
+      <div class="field" id="fieldName"><label for="regName">Название магазина</label><input type="text" id="regName" placeholder="Например, «Ситора»"></div>
+      <div class="field"><label for="regEmail">Email</label><input type="email" id="regEmail" placeholder="pochta@primer.ru" required></div>
+      <div class="field" id="fieldPhone"><label for="regPhone">Телефон <span class="muted-inline">(необязательно, увидят клиенты в боте)</span></label><input type="tel" id="regPhone" placeholder="+992 XX 123 45 67" autocomplete="tel"></div>
+      <div class="field"><label for="regPass">Пароль</label><input type="password" id="regPass" placeholder="Минимум 6 символов" autocomplete="new-password" required></div>
+      <div class="modal-switch" id="authForgotWrap" style="display:none;text-align:right;margin:-8px 0 12px;">
+        <button type="button" id="authForgotBtn" class="muted-link">Забыли пароль?</button>
+      </div>
+      <button class="btn btn-primary" type="submit" id="authSubmit">Создать аккаунт</button>
+    </form>
+    <div class="modal-switch">
+      <span id="authSwitchTxt">Уже есть аккаунт?</span> <button id="authSwitchBtn">Войти</button>
+    </div>
+    <div class="modal-switch">
+      <button type="button" id="btnOpenEmployeeLogin">Вы сотрудник магазина? Войти по коду →</button>
+    </div>
+    <div class="modal-switch">
+      <button type="button" id="btnGuestLogin">Просто посмотреть или найти магазин — без регистрации →</button>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="emailVerifyModal">
+  <div class="modal-box" style="position:relative;">
+    <button class="modal-close" id="emailVerifyClose">✕</button>
+    <div class="modal-head">
+      <h3>Подтвердите почту</h3>
+      <p id="emailVerifySub">Мы отправили 6-значный код на вашу почту</p>
+    </div>
+    <div class="modal-error" id="emailVerifyError"></div>
+    <form id="emailVerifyForm">
+      <div class="field"><label for="emailVerifyCode">Код из письма</label><input type="text" id="emailVerifyCode" inputmode="numeric" pattern="[0-9]{6}" maxlength="6" placeholder="123456" required></div>
+      <button class="btn btn-primary" type="submit" id="emailVerifySubmit">Подтвердить</button>
+    </form>
+    <div class="modal-switch">
+      <button type="button" id="emailVerifyResendBtn">Отправить код ещё раз</button>
+    </div>
+    <div class="modal-switch">
+      <button type="button" id="emailVerifyLaterBtn">Подтвердить позже</button>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="forgotPasswordModal">
+  <div class="modal-box" style="position:relative;">
+    <button class="modal-close" id="forgotPasswordClose">✕</button>
+    <div class="modal-head">
+      <h3>Восстановление пароля</h3>
+      <p id="forgotPasswordSub">Укажите email — пришлём ссылку для сброса пароля</p>
+    </div>
+    <div class="modal-error" id="forgotPasswordError"></div>
+    <div class="modal-ok" id="forgotPasswordOk" style="display:none;">Если такой email зарегистрирован — письмо со ссылкой уже отправлено. Проверьте почту.</div>
+    <form id="forgotPasswordForm">
+      <div class="field"><label for="forgotPasswordEmail">Email</label><input type="email" id="forgotPasswordEmail" placeholder="pochta@primer.ru" required></div>
+      <button class="btn btn-primary" type="submit" id="forgotPasswordSubmit">Отправить ссылку</button>
+    </form>
+  </div>
+</div>
+
+<div class="modal-overlay" id="resetPasswordModal">
+  <div class="modal-box" style="position:relative;">
+    <button class="modal-close" id="resetPasswordClose">✕</button>
+    <div class="modal-head">
+      <h3>Новый пароль</h3>
+      <p>Придумайте новый пароль для входа</p>
+    </div>
+    <div class="modal-error" id="resetPasswordError"></div>
+    <form id="resetPasswordForm">
+      <div class="field"><label for="resetPasswordPass">Новый пароль</label><input type="password" id="resetPasswordPass" placeholder="Минимум 6 символов" autocomplete="new-password" required></div>
+      <button class="btn btn-primary" type="submit" id="resetPasswordSubmit">Сохранить пароль</button>
+    </form>
+  </div>
+</div>
+
+<div class="modal-overlay" id="reviewModal">
+  <div class="modal-box" style="position:relative;">
+    <button class="modal-close" id="reviewClose">✕</button>
+    <div class="modal-head">
+      <h3>Оставить отзыв</h3>
+      <p>Ваша оценка поможет другим продавцам</p>
+    </div>
+    <div class="modal-error" id="reviewError"></div>
+    <div class="review-stars-picker" id="reviewStarsPicker">
+      <button type="button" class="star-btn" data-val="1"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-star"/></svg></button>
+      <button type="button" class="star-btn" data-val="2"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-star"/></svg></button>
+      <button type="button" class="star-btn" data-val="3"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-star"/></svg></button>
+      <button type="button" class="star-btn" data-val="4"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-star"/></svg></button>
+      <button type="button" class="star-btn" data-val="5"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-star"/></svg></button>
+    </div>
+    <form id="reviewForm">
+      <div class="field"><label for="reviewText">Комментарий (необязательно)</label><textarea id="reviewText" rows="4" maxlength="500" placeholder="Расскажите, как MySavdo помог вашему магазину"></textarea></div>
+      <button class="btn btn-primary" type="submit" id="reviewSubmitBtn">Опубликовать отзыв</button>
+    </form>
+    <div class="modal-switch" id="reviewDeleteWrap" style="display:none;">
+      <button id="btnDeleteReview" style="color:var(--danger);">Удалить мой отзыв</button>
+    </div>
+  </div>
+</div>
+
+<section class="screen" id="screen-dashboard">
+  <header class="dash-header">
+    <div class="container">
+      <div class="logo dash-logo" style="color:#fff;"><div class="logo-mark js-logo-mark"><svg class="icon icon-sm" viewBox="0 0 24 24"><use href="#icon-bag"/></svg></div>MySavdo</div>
+      <nav class="dash-nav" data-tour="dash-nav">
+        <button class="active icon-tip" data-view="home" data-tip="Главная" data-tour="nav-home"><svg class="icon icon-sm" viewBox="0 0 24 24"><use href="#icon-home"/></svg></button>
+        <button class="icon-tip" data-view="funnel" data-tip="Воронка продаж" data-tour="nav-funnel"><svg class="icon icon-sm" viewBox="0 0 24 24"><use href="#icon-funnel"/></svg></button>
+        <button class="icon-tip" data-view="analytics" data-tip="Аналитика" data-tour="nav-analytics"><svg class="icon icon-sm" viewBox="0 0 24 24"><use href="#icon-chart"/></svg></button>
+        <button class="icon-tip" data-view="plan" data-tip="Тариф"><svg class="icon icon-sm" viewBox="0 0 24 24"><use href="#icon-bag"/></svg></button>
+      </nav>
+      <div class="dash-user">
+        <button class="icon-btn-header icon-tip" id="btnDashSearch" data-tip="Поиск"><svg class="icon icon-sm" viewBox="0 0 24 24"><use href="#icon-search"/></svg></button>
+        <div class="notif-wrap">
+          <button class="icon-btn-header icon-tip" id="btnDmOpen" data-tip="Сообщения"><svg class="icon icon-sm" viewBox="0 0 24 24"><use href="#icon-message"/></svg><span class="notif-badge" id="dmBadge" style="display:none;">0</span></button>
+        </div>
+        <button class="icon-btn-header icon-tip" id="btnCmdk" data-tip="Быстрые действия" data-tour="cmdk"><svg class="icon icon-sm" viewBox="0 0 24 24"><use href="#icon-command"/></svg></button>
+        <div class="notif-wrap">
+          <button class="icon-btn-header icon-tip" id="btnNotif" data-tip="Уведомления" data-tour="notif"><svg class="icon icon-sm" viewBox="0 0 24 24"><use href="#icon-bell"/></svg><span class="notif-badge" id="notifBadge" style="display:none;">0</span></button>
+          <div class="notif-panel" id="notifPanel">
+            <div class="notif-panel-head"><h4>Уведомления</h4><button class="muted-link" id="notifClearBtn">Очистить</button></div>
+            <div class="notif-list" id="notifList"></div>
+          </div>
+        </div>
+        <div class="account-wrap" data-tour="account">
+          <button class="dash-avatar" id="dashAvatar">R</button>
+          <div class="account-menu" id="accountMenu">
+            <div class="account-menu-head">
+              <div class="dash-avatar" id="accountMenuAvatar">R</div>
+              <div><div class="account-menu-name" id="accountMenuName">Продавец</div><div class="account-menu-email" id="accountMenuEmail">pochta@primer.ru</div></div>
+            </div>
+            <div class="account-menu-meta">
+              <span id="accountMenuDaysWithUs" style="display:none;"></span>
+              <button type="button" class="account-menu-copylink icon-tip" id="accountMenuCopyLink" data-tip="Скопировать ссылку на профиль" style="display:none;">
+                <svg class="icon icon-sm" viewBox="0 0 24 24"><use href="#icon-copy"/></svg>@<span id="accountMenuUsername"></span>
+              </button>
+            </div>
+            <div class="account-menu-employee-badge" id="accountMenuEmployeeBadge" style="display:none;"></div>
+            <div class="account-switcher" id="accountSwitcher">
+              <div class="account-switcher-row" id="accountSwitcherRow"></div>
+              <button type="button" class="account-switcher-manage" id="btnManageAccounts">Управление аккаунтами</button>
+            </div>
+            <div class="account-menu-divider"></div>
+            <button data-view="clients"><svg class="icon icon-sm" viewBox="0 0 24 24"><use href="#icon-users"/></svg>Мои клиенты</button>
+            <button data-view="ai" data-tour="menu-ai"><svg class="icon icon-sm" viewBox="0 0 24 24"><use href="#icon-message"/></svg>Помощь ИИ</button>
+            <button data-view="plan" id="menuPlanBtn"><svg class="icon icon-sm" viewBox="0 0 24 24"><use href="#icon-bag"/></svg>Тариф и соцсети</button>
+            <button id="btnCreateShop" type="button" style="display:none;"><svg class="icon icon-sm" viewBox="0 0 24 24"><use href="#icon-bag"/></svg>Создать магазин</button>
+            <button id="btnOpenEmployees" type="button" style="display:none;"><svg class="icon icon-sm" viewBox="0 0 24 24"><use href="#icon-users"/></svg>Сотрудники</button>
+            <button id="btnJoinShop" type="button" style="display:none;"><svg class="icon icon-sm" viewBox="0 0 24 24"><use href="#icon-target"/></svg>Стать сотрудником</button>
+            <button id="btnOpenProfile" type="button"><svg class="icon icon-sm" viewBox="0 0 24 24"><use href="#icon-users"/></svg>Профиль и настройки</button>
+            <button id="btnOpenJourney" type="button"><svg class="icon icon-sm" viewBox="0 0 24 24"><use href="#icon-star"/></svg>Путь продавца<span class="menu-badge" id="journeyMenuBadge" style="display:none;">1</span></button>
+            <button id="btnDashTour" type="button"><svg class="icon icon-sm" viewBox="0 0 24 24"><use href="#icon-target"/></svg>Показать тур снова</button>
+            <button id="btnOpenTelegramModal" type="button"><svg class="icon icon-sm" viewBox="0 0 24 24"><use href="#icon-send"/></svg><span id="telegramMenuLabel">Подключить Telegram</span></button>
+            <button id="btnOpenTgGroups" type="button"><svg class="icon icon-sm" viewBox="0 0 24 24"><use href="#icon-users"/></svg>Telegram-группы<span class="menu-badge" id="tgGroupsBadge" style="display:none;">0</span></button>
+            <button id="btnOpenInstagramModal" type="button"><svg class="icon icon-sm" viewBox="0 0 24 24"><use href="#icon-camera"/></svg><span id="instagramMenuLabel">Подключить Instagram</span></button>
+            <div class="account-menu-divider"></div>
+            <button id="btnLogout"><svg class="icon icon-sm" viewBox="0 0 24 24"><use href="#icon-logout"/></svg>Выйти</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="verify-email-banner" id="verifyEmailBanner" style="display:none;">
+    <div class="container verify-email-banner-inner">
+      <span>Подтвердите почту — без этого нельзя создать магазин и купить тариф.</span>
+      <button type="button" class="btn btn-sm btn-primary" id="btnVerifyEmailBanner">Подтвердить</button>
+    </div>
+  </div>
+
+  <div class="verify-email-banner" id="serviceUnavailableBanner" style="display:none;">
+    <div class="container verify-email-banner-inner">
+      <span>Сервис временно недоступен — данные могут быть неактуальны.</span>
+      <button type="button" class="btn btn-sm btn-outline" id="btnRetryClients">Повторить</button>
+    </div>
+  </div>
+
+  <div class="dash-body container">
+
+    <div class="dash-view active" id="view-home">
+      <div class="story-rail" id="storyRail" style="display:none;"></div>
+
+      <div class="dash-toolbar">
+        <div>
+          <h2 id="dashGreeting">С возвращением!</h2>
+          <p>Вот что происходит с заявками сегодня</p>
+        </div>
+      </div>
+
+      <div class="empty-state" id="dashEmptyState" style="display:none;">
+        <div class="empty-state-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-bell"/></svg></div>
+        <h5>Пока нет заявок</h5>
+        <p>Как только клиенты напишут в подключённые каналы, заявки появятся здесь.</p>
+      </div>
+
+      <div class="kpi-grid" id="kpiGrid"></div>
+
+      <div class="next-actions-card" id="nextActionsCard">
+        <div class="home-card-head">
+          <h3><svg class="icon icon-sm" viewBox="0 0 24 24"><use href="#icon-sparkle"/></svg>Что сделать в первую очередь</h3>
+          <div style="display:flex;align-items:center;gap:10px;">
+            <span class="muted-link" id="riskScanBtn" style="display:none;">Обновить ИИ-анализ</span>
+            <span class="na-badge" id="naBadge">0</span>
+          </div>
+        </div>
+        <div class="next-actions-list" id="nextActionsList"></div>
+      </div>
+
+      <div class="home-split">
+        <div class="home-card">
+          <div class="home-card-head"><h3>Свежие сообщения</h3><span class="muted-link" data-goto="funnel">вся воронка →</span></div>
+          <div class="activity-list" id="activityList"></div>
+        </div>
+        <div class="home-card">
+          <div class="home-card-head"><h3>Заявки по этапам</h3><span class="muted-link" data-goto="analytics">аналитика →</span></div>
+          <div class="mini-funnel" id="miniFunnel"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="dash-view" id="view-clients">
+      <div class="dash-toolbar">
+        <div><h2>Мои клиенты</h2><p>Все заявки в одном списке — с поиском и фильтром по каналу</p></div>
+        <button class="btn btn-outline btn-sm" id="btnExportClientsCsv" type="button"><svg class="icon icon-sm" viewBox="0 0 24 24"><use href="#icon-download"/></svg>Скачать Excel</button>
+      </div>
+      <div class="clients-toolbar">
+        <div class="search-field">
+          <svg class="icon icon-sm" viewBox="0 0 24 24"><use href="#icon-search"/></svg>
+          <input type="text" id="clientSearch" placeholder="Поиск по имени…">
+        </div>
+        <div class="chip-filters" id="chanFilters">
+          <button class="chip active" data-chan="all">Все каналы</button>
+          <button class="chip" data-chan="Telegram">Telegram</button>
+          <button class="chip" data-chan="Instagram">Instagram</button>
+          <button class="chip" data-chan="WhatsApp">WhatsApp</button>
+        </div>
+      </div>
+      <div class="clients-table-wrap">
+        <table class="clients-table">
+          <thead><tr><th>Клиент</th><th>Канал</th><th>Этап</th><th>Настроение</th><th>Последнее сообщение</th><th></th></tr></thead>
+          <tbody id="clientsTableBody"></tbody>
+        </table>
+        <div class="table-empty" id="clientsEmpty" style="display:none;">Ничего не нашлось — попробуйте другой запрос</div>
+      </div>
+    </div>
+
+    <div class="dash-view" id="view-funnel">
+      <div class="dash-toolbar">
+        <div><h2>Воронка продаж</h2><p>Перетаскивайте карточки между этапами по мере продвижения сделки</p></div>
+        <button class="btn btn-outline btn-sm" id="btnAddTestCard" type="button" title="Добавить пример карточки, чтобы посмотреть, как она выглядит"><svg class="icon icon-sm" viewBox="0 0 24 24"><use href="#icon-plus"/></svg>Тестовая карточка</button>
+      </div>
+      <div class="kanban" id="kanban"></div>
+    </div>
+
+    <div class="dash-view" id="view-analytics">
+      <div class="dash-toolbar">
+        <div><h2>Аналитика</h2><p>Три показателя, на которые стоит смотреть каждое утро</p></div>
+      </div>
+      <div class="home-card goal-card" id="goalCard" style="margin-bottom:20px;display:none;">
+        <div class="home-card-head">
+          <h3>Цель продаж на месяц</h3>
+          <span class="muted-link" id="goalEditLink">Изменить в профиле</span>
+        </div>
+        <div id="goalProgress"></div>
+      </div>
+      <div class="kpi-grid" id="kpiGrid2"></div>
+
+      <div class="home-card trend-hero-card">
+        <div class="home-card-head trend-hero-head">
+          <div>
+            <h3>Заявки</h3>
+            <p class="muted-link" id="trendHint" style="display:block;margin-top:2px;"></p>
+          </div>
+          <div class="chip-filters trend-range-chips" id="trendRangeChips">
+            <button class="chip active" data-range="7d" type="button">7 дней</button>
+            <button class="chip" data-range="30d" type="button">30 дней</button>
+            <button class="chip" data-range="90d" type="button">90 дней</button>
+          </div>
+        </div>
+        <div class="trend-hero-stats">
+          <div class="trend-hero-num" id="trendHeroNum">0</div>
+          <div class="trend-hero-delta" id="trendHeroDelta"></div>
+        </div>
+        <div class="trend-chart-wrap">
+          <svg class="trend-chart" id="trendChart" viewBox="0 0 560 200" preserveAspectRatio="none"></svg>
+        </div>
+      </div>
+
+      <div class="home-split" style="margin-top:20px;">
+        <div class="home-card">
+          <div class="home-card-head"><h3>Источники заявок</h3></div>
+          <div class="chan-bars" id="chanBars"></div>
+        </div>
+        <div class="home-card">
+          <div class="home-card-head"><h3>Воронка по этапам</h3></div>
+          <div class="stage-bars" id="stageBars"></div>
+        </div>
+      </div>
+      <div class="home-card" style="margin-top:20px;">
+        <div class="home-card-head"><h3>Когда клиенты пишут чаще всего</h3><span class="muted-link" id="heatmapHint">по дням и времени суток</span></div>
+        <div class="heatmap-wrap">
+          <div class="heatmap" id="heatmap"></div>
+        </div>
+      </div>
+      <div class="home-card" id="deleteReasonsCard" style="margin-top:20px;display:none;">
+        <div class="home-card-head"><h3>Почему теряем клиентов</h3><span class="muted-link">удалённые заявки за 90 дней</span></div>
+        <div class="chan-bars" id="deleteReasonsBars"></div>
+      </div>
+    </div>
+
+    <div class="dash-view" id="view-plan">
+      <div class="dash-toolbar">
+        <div><h2>Тариф и соцсети</h2><p>Подписка, срок действия и подключённые каналы продаж</p></div>
+      </div>
+
+      <div class="plan-current-grid">
+        <div class="plan-current-card" id="planCurrentCard">
+          <div class="plan-current-top">
+            <div>
+              <div class="plan-current-label">Текущий тариф</div>
+              <div class="plan-current-name" id="planCurrentName">—</div>
+            </div>
+            <span class="plan-status-badge active" id="planCurrentBadge">Активен</span>
+          </div>
+          <div class="plan-countdown" id="planCountdown">
+            <div class="pc-cell"><b id="pcDays">—</b><span>дней</span></div>
+            <div class="pc-sep">:</div>
+            <div class="pc-cell"><b id="pcHours">—</b><span>часов</span></div>
+            <div class="pc-sep">:</div>
+            <div class="pc-cell"><b id="pcMins">—</b><span>минут</span></div>
+            <div class="pc-sep">:</div>
+            <div class="pc-cell"><b id="pcSecs">—</b><span>секунд</span></div>
+          </div>
+          <div class="plan-progress">
+            <div class="plan-progress-track"><div class="plan-progress-fill" id="planProgressFill" style="width:0%"></div></div>
+            <div class="plan-progress-meta"><span id="planStartedLabel">—</span><span id="planEndsLabel">—</span></div>
+          </div>
+          <p class="plan-renew-note" id="planRenewNote">Следующая покупка — после окончания текущего тарифа</p>
+          <div class="plan-ai-usage" id="planAiUsage" style="display:none;">
+            <span class="pau-label">Чат ИИ сегодня</span>
+            <div class="pau-track"><div class="pau-fill" id="planAiUsageFill"></div></div>
+            <b id="planAiUsageText">0 / 15</b>
+          </div>
+        </div>
+
+        <div class="plan-paused-card" id="planPausedCard" style="display:none;">
+          <div class="plan-current-label" style="color:var(--muted);">Тарифы на паузе</div>
+          <div class="plan-paused-list" id="planPausedList"></div>
+          <p class="plan-pending-note">Пауза сохраняет оставшиеся дни. Тариф с паузы включится сам после окончания текущего — или переключитесь вручную.</p>
+        </div>
+      </div>
+
+      <div class="home-card" style="margin-top:22px;">
+        <div class="home-card-head">
+          <h3>Соцсети</h3>
+          <span class="muted-link" id="socialsLimitLabel">Instagram или Telegram — на выбор</span>
+        </div>
+        <div class="socials-grid" id="socialsGrid">
+          <div class="social-card" data-social="telegram">
+            <div class="social-icon tg"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-plane"/></svg></div>
+            <div class="social-info">
+              <h4>Telegram</h4>
+              <p id="socialTgStatus">Бот принимает заявки прямо в CRM</p>
+            </div>
+            <button class="btn btn-outline btn-sm" id="socialTgBtn">Подключить</button>
+          </div>
+          <div class="social-card soon" data-social="whatsapp">
+            <div class="social-icon wa"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-message"/></svg></div>
+            <div class="social-info">
+              <h4>WhatsApp <span class="soon-badge">Скоро</span></h4>
+              <p>Интеграция в разработке — появится в ближайших обновлениях</p>
+            </div>
+            <button class="btn btn-outline btn-sm" disabled>Скоро</button>
+          </div>
+          <div class="social-card" data-social="instagram">
+            <div class="social-icon ig"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-camera"/></svg></div>
+            <div class="social-info">
+              <h4>Instagram</h4>
+              <p id="socialIgStatus">Сообщения из Direct приходят прямо в CRM</p>
+            </div>
+            <button class="btn btn-outline btn-sm" id="socialIgBtn">Подключить</button>
+          </div>
+        </div>
+
+        <button type="button" class="social-more-toggle" id="socialMoreToggle">
+          <span>Другие соцсети и мессенджеры</span>
+          <svg class="icon icon-sm" viewBox="0 0 24 24"><use href="#icon-chevron-down"/></svg>
+        </button>
+        <div class="social-more-panel" id="socialMorePanel" hidden>
+          <p class="social-more-hint">Пока в очереди на подключение — как раньше был WhatsApp. Напишите в поддержку, если для вас какая-то важнее остальных.</p>
+          <div class="social-more-grid">
+            <div class="social-more-chip" style="--chip-c:#000000"><span class="social-more-avatar">TT</span><b>TikTok</b><span class="soon-badge">Скоро</span></div>
+            <div class="social-more-chip" style="--chip-c:#7360F2"><span class="social-more-avatar">Vb</span><b>Viber</b><span class="soon-badge">Скоро</span></div>
+            <div class="social-more-chip" style="--chip-c:#12B7F5"><span class="social-more-avatar">im</span><b>imo</b><span class="soon-badge">Скоро</span></div>
+            <div class="social-more-chip" style="--chip-c:#006AFF"><span class="social-more-avatar">Ms</span><b>Messenger</b><span class="soon-badge">Скоро</span></div>
+            <div class="social-more-chip" style="--chip-c:#1877F2"><span class="social-more-avatar">Fb</span><b>Facebook</b><span class="soon-badge">Скоро</span></div>
+            <div class="social-more-chip" style="--chip-c:#F2994A"><span class="social-more-avatar">Or</span><b>Oriz</b><span class="soon-badge">Скоро</span></div>
+            <div class="social-more-chip" style="--chip-c:#8B5CF6"><span class="social-more-avatar">Mx</span><b>MAX</b><span class="soon-badge">Скоро</span></div>
+            <div class="social-more-chip" style="--chip-c:#1DA1F2"><span class="social-more-avatar">Tw</span><b>Twitter</b><span class="soon-badge">Скоро</span></div>
+            <div class="social-more-chip" style="--chip-c:#171717"><span class="social-more-avatar">Th</span><b>Threads</b><span class="soon-badge">Скоро</span></div>
+            <div class="social-more-chip" style="--chip-c:#64748B"><span class="social-more-avatar">✉</span><b>SMS</b><span class="soon-badge">Скоро</span></div>
+            <div class="social-more-chip" style="--chip-c:#0077FF"><span class="social-more-avatar">VK</span><b>ВКонтакте</b><span class="soon-badge">Скоро</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="home-card" style="margin-top:22px;">
+        <div class="home-card-head"><h3>Все тарифы</h3><span class="muted-link">одновременно действует один тариф</span></div>
+        <div class="plan-cards-grid" id="planCardsGrid"></div>
+        <p class="plan-note">Одновременно действует один тариф. При покупке платного тарифа поверх бесплатного — бесплатный встаёт на паузу и его дни не сгорают; платный поверх платного — новый ждёт на паузе и включится после окончания текущего. Переключаться между тарифами можно вручную.</p>
+      </div>
+
+      <div class="home-card" style="margin-top:22px;" id="paymentsCard" hidden>
+        <div class="home-card-head"><h3>История оплат</h3></div>
+        <div class="payments-list" id="paymentsList"></div>
+      </div>
+    </div>
+
+    <div class="dash-view" id="view-ai">
+      <div class="ai-page">
+        <div class="ai-page-head">
+          <div class="ai-page-avatar"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-sparkle"/></svg></div>
+          <div>
+            <h2>Помощник MySavdo</h2>
+            <p>Спросите про воронку, аналитику или попросите составить ответ клиенту</p>
+          </div>
+          <div class="ai-limit-badge" id="aiLimitBadge" style="display:none;" title="Дневной лимит сообщений вашего тарифа">
+            <svg class="icon icon-sm" viewBox="0 0 24 24"><use href="#icon-sparkle"/></svg>
+            <span id="aiLimitText">15 из 15</span>
+          </div>
+        </div>
+        <div class="insta-promo" id="instaPromo" style="display:none;">
+          <div class="insta-promo-glow"></div>
+          <div class="insta-promo-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4.5"/><circle cx="17.2" cy="6.8" r="1.2" fill="currentColor" stroke="none"/></svg>
+          </div>
+          <div class="insta-promo-text">
+            <b>+5 сообщений ИИ бесплатно</b>
+            <span>Загляните в наш Instagram — бонус не сгорает и тратится после дневного лимита</span>
+          </div>
+          <button class="btn btn-sm insta-promo-btn" id="instaPromoBtn" type="button">Получить +5</button>
+        </div>
+        <div class="ai-page-body" id="aiChatBody"></div>
+        <div class="ai-page-suggestions" id="aiSuggestions">
+          <button class="ai-chip">Как поднять конверсию из «Консультации» в «Договор»?</button>
+          <button class="ai-chip">Составь ответ клиенту, который спрашивает про скидку</button>
+          <button class="ai-chip">Почему WhatsApp приносит меньше заявок, чем Telegram?</button>
+        </div>
+        <form class="ai-page-input" id="aiForm">
+          <div class="ai-input-wrap">
+            <input type="text" id="aiInput" placeholder="Напишите вопрос помощнику… (# — команды)" autocomplete="off">
+            <div class="ai-cmd-menu" id="aiCmdMenu"></div>
+          </div>
+          <button type="submit" class="btn btn-primary btn-sm"><svg class="icon icon-sm" viewBox="0 0 24 24"><use href="#icon-send"/></svg></button>
+        </form>
+      </div>
+    </div>
+
+  </div>
+
+  <nav class="dash-tabbar" id="dashTabbar" aria-label="Разделы">
+    <button class="active" data-view="home"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-home"/></svg><span>Главная</span></button>
+    <button data-view="funnel"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-funnel"/></svg><span>Воронка</span></button>
+    <button data-view="clients"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-users"/></svg><span>Клиенты</span></button>
+    <button data-view="analytics"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-chart"/></svg><span>Аналитика</span></button>
+    <button data-view="ai"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-sparkle"/></svg><span>ИИ</span></button>
+  </nav>
+
+  <button class="support-fab" id="supportFab" type="button" aria-label="Написать в поддержку">
+    <svg class="icon" viewBox="0 0 24 24"><use href="#icon-message"/></svg>
+    <span class="support-fab-badge" id="supportFabBadge" style="display:none;">0</span>
+  </button>
+
+  <div class="support-panel" id="supportPanel" aria-hidden="true">
+    <div class="support-head">
+      <div class="support-head-avatar">
+        <svg class="icon icon-sm" viewBox="0 0 24 24"><use href="#icon-message"/></svg>
+      </div>
+      <div class="support-head-text">
+        <b>Поддержка MySavdo</b>
+        <span><i class="support-online-dot"></i>Обычно отвечаем в течение часа</span>
+      </div>
+      <button class="support-close" id="supportClose" type="button">✕</button>
+    </div>
+    <div class="support-body" id="supportBody">
+      <div class="support-welcome" id="supportWelcome">
+        <div class="support-welcome-icon">👋</div>
+        <b>Здравствуйте!</b>
+        <p>Напишите нам, если что-то не работает или есть вопрос по MySavdo — администратор ответит прямо здесь.</p>
+      </div>
+    </div>
+    <form class="support-input" id="supportForm">
+      <input type="text" id="supportInput" placeholder="Напишите сообщение…" autocomplete="off" maxlength="2000">
+      <button type="submit" class="support-send" aria-label="Отправить">
+        <svg class="icon icon-sm" viewBox="0 0 24 24"><use href="#icon-send"/></svg>
+      </button>
+    </form>
+  </div>
+</section>
+
+<div class="chat-overlay" id="chatOverlay">
+  <div class="chat-panel">
+    <div class="chat-head">
+      <div class="kcard-avatar" id="chatAvatar">R</div>
+      <div class="chat-head-info">
+        <h3 id="chatName">Рахимов З.</h3>
+        <div class="chat-head-meta">
+          <div class="chan" id="chatChan"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-plane"/></svg>Telegram</div>
+          <div class="chat-status" id="chatStatus"><span class="online-dot"></span>—</div>
+        </div>
+      </div>
+      <div class="chat-head-actions">
+        <button class="icon-btn icon-tip" id="chatExtractOrderBtn" data-tip="ИИ: извлечь заказ из переписки" type="button"><svg class="icon icon-sm" viewBox="0 0 24 24"><use href="#icon-sparkle"/></svg></button>
+        <button class="icon-btn icon-tip" id="chatPinBtn" data-tip="Закрепить заявку" type="button"><svg class="icon icon-sm" viewBox="0 0 24 24"><use href="#icon-pin"/></svg></button>
+        <button class="icon-btn" id="chatDelete" title="Удалить заявку"><svg class="icon icon-sm" viewBox="0 0 24 24"><use href="#icon-trash"/></svg></button>
+        <button class="chat-close" id="chatClose"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-x"/></svg></button>
+      </div>
+    </div>
+    <div class="chat-stage-row">
+      <span>Этап сделки</span>
+      <select id="chatStageSelect"></select>
+    </div>
+    <div class="chat-remind-row">
+      <svg class="icon icon-sm" viewBox="0 0 24 24"><use href="#icon-bell"/></svg>
+      <input type="datetime-local" id="chatRemindInput" aria-label="Напомнить о клиенте">
+      <button type="button" class="icon-btn icon-tip" id="chatRemindClear" data-tip="Убрать напоминание"><svg class="icon icon-sm" viewBox="0 0 24 24"><use href="#icon-x"/></svg></button>
+    </div>
+    <div class="chat-notes-row">
+      <textarea id="chatNotesInput" rows="1" placeholder="Личная заметка о клиенте (видна только вам)…" maxlength="2000"></textarea>
+      <span class="chat-notes-saved" id="chatNotesSaved">Сохранено</span>
+    </div>
+    <div class="chat-body" id="chatBody"></div>
+    <div class="chat-foot">
+      <form class="chat-reply-form" id="chatReplyForm">
+        <div class="rec-indicator" id="recIndicator">
+          <span class="rec-dot"></span>
+          <span class="rec-label">Идёт запись</span>
+          <span class="rec-timer" id="recTimer">0:00</span>
+          <button type="button" class="rec-cancel" id="recCancel" title="Отменить запись">✕</button>
+        </div>
+        <input type="text" id="chatReplyInput" placeholder="Написать клиенту…" autocomplete="off">
+        <input type="file" id="chatPhotoInput" accept="image/*" style="display:none;">
+        <button type="button" class="btn-mic icon-tip" id="btnCannedReplies" data-tip="Быстрые шаблоны ответа">⚡</button>
+        <button type="button" class="btn-mic icon-tip" id="btnAttachPhoto" data-tip="Отправить фото"><svg class="icon icon-sm" viewBox="0 0 24 24"><use href="#icon-camera"/></svg></button>
+        <button type="button" class="btn-mic" id="btnVoice" title="Записать голосовое сообщение"><svg class="icon icon-sm" viewBox="0 0 24 24"><use href="#icon-mic"/></svg></button>
+        <button type="submit" class="btn btn-primary btn-sm" title="Отправить"><svg class="icon icon-sm" viewBox="0 0 24 24"><use href="#icon-send"/></svg></button>
+      </form>
+      <button class="btn btn-outline" style="width:100%;margin-top:10px;" id="btnAiReply"><svg class="icon icon-sm" viewBox="0 0 24 24"><use href="#icon-sparkle"/></svg> Предложить ответ через ИИ</button>
+      <div class="ai-status"><span>Автоответчик ИИ на этот чат</span><label class="switch"><input type="checkbox" id="chatAiToggle"><span class="switch-track"></span></label></div>
+    </div>
+  </div>
+</div>
+
+<div class="chat-overlay" id="dmOverlay">
+  <div class="chat-panel">
+    <div class="dm-view" id="dmListView">
+      <div class="chat-head">
+        <div class="chat-head-info"><h3><svg class="icon icon-sm" viewBox="0 0 24 24"><use href="#icon-message"/></svg> Сообщения</h3></div>
+        <div class="chat-head-actions">
+          <button class="icon-btn icon-tip" id="dmMarkAllReadBtn" data-tip="Отметить всё прочитанным" type="button"><svg class="icon icon-sm" viewBox="0 0 24 24"><use href="#icon-check"/></svg></button>
+          <button class="icon-btn" id="dmNewChatBtn" title="Найти собеседника"><svg class="icon icon-sm" viewBox="0 0 24 24"><use href="#icon-search"/></svg></button>
+          <button class="chat-close" id="dmClose"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-x"/></svg></button>
+        </div>
+      </div>
+      <div class="dm-list" id="dmList"><div class="notif-empty">Загрузка…</div></div>
+    </div>
+    <div class="dm-view" id="dmThreadView" style="display:none;">
+      <div class="chat-head">
+        <button class="dm-back" id="dmThreadBack" type="button">←</button>
+        <div class="kcard-avatar" id="dmThreadAvatar">?</div>
+        <div class="chat-head-info">
+          <h3 id="dmThreadName">—</h3>
+          <div class="chat-head-meta"><span class="dm-thread-sub" id="dmThreadSub"></span></div>
+        </div>
+        <div class="chat-head-actions">
+          <button class="chat-close" id="dmThreadClose"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-x"/></svg></button>
+        </div>
+      </div>
+      <div class="chat-body" id="dmThreadBody"></div>
+      <div class="chat-foot">
+        <form class="chat-reply-form" id="dmReplyForm">
+          <input type="text" id="dmReplyInput" placeholder="Написать сообщение…" autocomplete="off" maxlength="4000">
+          <button type="submit" class="btn btn-primary btn-sm" title="Отправить"><svg class="icon icon-sm" viewBox="0 0 24 24"><use href="#icon-send"/></svg></button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="chat-overlay tg-groups-overlay" id="tgGroupsOverlay">
+  <div class="chat-panel">
+    <div class="dm-view" id="tgGroupsListView">
+      <div class="chat-head">
+        <div class="chat-head-info"><h3><svg class="icon icon-sm" viewBox="0 0 24 24"><use href="#icon-users"/></svg> Telegram-группы</h3></div>
+        <div class="chat-head-actions">
+          <button class="icon-btn icon-tip" id="tgStoryBtn" data-tip="Опубликовать пост" type="button"><svg class="icon icon-sm" viewBox="0 0 24 24"><use href="#icon-plane"/></svg></button>
+          <button class="chat-close" id="tgGroupsClose"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-x"/></svg></button>
+        </div>
+      </div>
+      <div class="tg-groups-hint" id="tgGroupsHint">
+        <div class="tg-groups-hint-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-send"/></svg></div>
+        <div class="tg-groups-hint-body">
+          <b>Как подключить группу</b>
+          <ol>
+            <li>Подключите Telegram-бота, если ещё не подключён</li>
+            <li>В <b>@BotFather</b>: <span class="mono">/mybots</span> → ваш бот → <span class="mono">Bot Settings</span> → <span class="mono">Group Privacy</span> → <b>Turn off</b> — иначе бот не увидит сообщения в группе</li>
+            <li>Создайте группу в Telegram и добавьте туда бота — группа появится здесь сама</li>
+          </ol>
+        </div>
+        <button type="button" class="tg-groups-hint-close" id="tgGroupsHintClose" aria-label="Скрыть подсказку">✕</button>
+      </div>
+      <div class="dm-list" id="tgGroupsList"><div class="notif-empty">Загрузка…</div></div>
+    </div>
+    <div class="dm-view" id="tgGroupThreadView" style="display:none;">
+      <div class="chat-head">
+        <button class="dm-back" id="tgGroupThreadBack" type="button">←</button>
+        <div class="kcard-avatar tg-group-avatar" id="tgGroupThreadAvatar">?</div>
+        <div class="chat-head-info">
+          <h3 id="tgGroupThreadName">—</h3>
+          <div class="chat-head-meta"><span id="tgGroupThreadMeta"></span></div>
+        </div>
+        <div class="chat-head-actions">
+          <button class="icon-btn icon-tip" id="tgGroupStoryBtn" data-tip="Опубликовать" type="button"><svg class="icon icon-sm" viewBox="0 0 24 24"><use href="#icon-plane"/></svg></button>
+          <button class="chat-close" id="tgGroupThreadClose"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-x"/></svg></button>
+        </div>
+      </div>
+      <div class="tg-group-tabs" id="tgGroupTabs">
+        <button type="button" class="tg-tab active" data-tab="chat">Чат</button>
+        <button type="button" class="tg-tab" data-tab="media">Медиа</button>
+        <button type="button" class="tg-tab" data-tab="members">Участники</button>
+      </div>
+      <div class="tg-group-pinned" id="tgGroupPinned" style="display:none;"></div>
+      <div class="chat-body" id="tgGroupChatBody"></div>
+      <div class="tg-media-grid" id="tgGroupMediaGrid" style="display:none;"></div>
+      <div class="tg-members-list" id="tgGroupMembersList" style="display:none;"></div>
+      <div class="chat-foot" id="tgGroupChatFoot">
+        <form class="chat-reply-form" id="tgGroupReplyForm">
+          <input type="text" id="tgGroupReplyInput" placeholder="Написать в группу…" autocomplete="off" maxlength="4000">
+          <button type="submit" class="btn btn-primary btn-sm" title="Отправить"><svg class="icon icon-sm" viewBox="0 0 24 24"><use href="#icon-send"/></svg></button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="tgStoryModal">
+  <div class="modal-box">
+    <button class="modal-close" id="tgStoryModalClose">✕</button>
+    <div class="modal-head">
+      <h3>Опубликовать в Telegram</h3>
+      <p>Текст, фото или видео — от имени бота, в выбранные группы</p>
+    </div>
+    <div class="modal-error" id="tgStoryError"></div>
+    <form id="tgStoryForm">
+      <input type="file" id="tgStoryFileInput" accept="image/*,video/*" style="display:none;">
+      <button type="button" class="btn btn-outline btn-sm" id="tgStoryAttachBtn" style="margin-bottom:14px;"><svg class="icon icon-sm" viewBox="0 0 24 24"><use href="#icon-camera"/></svg>Прикрепить фото/видео</button>
+      <div class="tg-story-preview" id="tgStoryPreviewBox" style="display:none;"></div>
+      <div class="field"><label for="tgStoryCaption">Текст</label><textarea id="tgStoryCaption" rows="3" maxlength="1024" placeholder="Что нового у вас в магазине?"></textarea></div>
+      <div class="field">
+        <label>Куда отправить</label>
+        <div class="tg-story-groups" id="tgStoryGroupPicker"></div>
+      </div>
+      <button class="btn btn-primary" type="submit" id="tgStorySubmit">Опубликовать</button>
+    </form>
+  </div>
+</div>
+
+<div class="story-viewer" id="storyViewer" aria-hidden="true">
+  <div class="story-viewer-inner">
+    <div class="story-progress" id="storyProgress"></div>
+    <div class="story-viewer-head">
+      <div class="story-viewer-who">
+        <span class="story-viewer-badge"><svg class="icon icon-sm" viewBox="0 0 24 24"><use href="#icon-bag"/></svg></span>
+        <div>
+          <b>MySavdo</b>
+          <span id="storyViewerTime">—</span>
+        </div>
+      </div>
+      <button class="story-mute-btn" id="storyMuteBtn" type="button" aria-label="Включить звук">🔇</button>
+      <button class="story-viewer-close" id="storyViewerClose" type="button" aria-label="Закрыть">✕</button>
+    </div>
+    <div class="story-viewer-media" id="storyViewerMedia">
+      <video id="storyVideo" playsinline muted></video>
+      <button class="story-tap-zone story-tap-prev" id="storyTapPrev" type="button" aria-label="Предыдущая история"></button>
+      <button class="story-tap-zone story-tap-next" id="storyTapNext" type="button" aria-label="Следующая история"></button>
+    </div>
+    <p class="story-caption" id="storyCaption"></p>
+    <div class="story-viewer-foot">
+      <div class="story-reactions" id="storyReactions"></div>
+      <form class="story-reply-form" id="storyReplyForm">
+        <input type="text" id="storyReplyInput" placeholder="Ответить…" autocomplete="off" maxlength="2000">
+        <button type="submit" class="story-reply-send" aria-label="Отправить"><svg class="icon icon-sm" viewBox="0 0 24 24"><use href="#icon-send"/></svg></button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="lightbox-overlay" id="lightboxOverlay">
+  <button type="button" class="lightbox-close" id="lightboxClose" aria-label="Закрыть">✕</button>
+  <img id="lightboxImg" alt="Фото" src="">
+</div>
+
+<div class="modal-overlay" id="searchModal">
+  <div class="modal-box">
+    <button class="modal-close" id="searchModalClose">✕</button>
+    <div class="modal-head">
+      <h3>Поиск</h3>
+      <p>Магазины и люди на MySavdo — по юзернейму или названию</p>
+    </div>
+    <div class="search-field">
+      <svg class="icon icon-sm" viewBox="0 0 24 24"><use href="#icon-search"/></svg>
+      <input type="text" id="globalSearchInput" placeholder="Юзернейм или название магазина…" autocomplete="off">
+    </div>
+    <div class="dm-list" id="globalSearchResults" style="margin-top:14px;"></div>
+  </div>
+</div>
+
+<div class="cmdk-overlay" id="cmdkOverlay">
+  <div class="cmdk-box">
+    <div class="cmdk-input-row">
+      <svg class="icon" viewBox="0 0 24 24"><use href="#icon-search"/></svg>
+      <input type="text" id="cmdkInput" placeholder="Быстрые действия и поиск клиентов…" autocomplete="off">
+      <span class="cmdk-esc">Esc</span>
+    </div>
+    <div class="cmdk-list" id="cmdkList"></div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="funnelStagesModal">
+  <div class="modal-box">
+    <button class="modal-close" id="funnelStagesClose">✕</button>
+    <div class="modal-head">
+      <h3>Колонки воронки</h3>
+      <p>5 стандартных этапов + свои — назовите как угодно, перетащите ⠿ чтобы изменить порядок, переключателем — скройте лишние</p>
+    </div>
+    <div class="modal-error" id="funnelStagesError"></div>
+
+    <div class="funnel-stages-list" id="funnelStagesList"></div>
+
+    <form id="addFunnelStageForm" class="funnel-stages-add">
+      <input type="text" id="newFunnelStageTitle" placeholder="Например: Ожидание доставки" maxlength="30" required>
+      <button class="btn btn-primary btn-sm" type="submit">+ Добавить</button>
+    </form>
+  </div>
+</div>
+
+<div class="modal-overlay" id="journeyModal">
+  <div class="modal-box journey-box">
+    <button class="modal-close" id="journeyClose">✕</button>
+
+    <div class="journey-header">
+      <div class="journey-level-ring" id="journeyLevelRing">
+        <svg viewBox="0 0 64 64" class="journey-level-ring-svg">
+          <circle cx="32" cy="32" r="28" class="journey-ring-track"/>
+          <circle cx="32" cy="32" r="28" class="journey-ring-fill" id="journeyRingFill"/>
+        </svg>
+        <span id="journeyLevelIndex">1</span>
+      </div>
+      <div class="journey-level-info">
+        <div class="journey-level-eyebrow">Путь продавца · уровень <span id="journeyLevelOf">1 / 6</span></div>
+        <div class="journey-level-title" id="journeyLevelTitle">Новичок</div>
+        <div class="journey-level-sub" id="journeyLevelSub">0 XP</div>
+      </div>
+    </div>
+
+    <div class="journey-path" id="journeyPath"></div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="accountsModal">
+  <div class="modal-box">
+    <button class="modal-close" id="accountsModalClose">✕</button>
+    <div class="modal-head">
+      <h3>Аккаунты</h3>
+      <p>Переключайтесь между своими магазинами в один клик — без пароля</p>
+    </div>
+    <div class="modal-error" id="accountsModalError"></div>
+
+    <div class="accounts-list" id="accountsModalList"></div>
+
+    <div class="slot-meter" id="accountSlotsMeter" style="margin:16px 0;">
+      <div class="mf-track"><div class="mf-fill" id="accSlotsFill"></div></div>
+      <span id="accSlotsLabel">1 / 2 аккаунтов подключено</span>
+    </div>
+
+    <div id="accountsAddBlock">
+      <button class="btn btn-outline btn-sm" type="button" id="btnShowAddAccountForm" style="width:100%;">+ Добавить аккаунт</button>
+      <form id="addAccountForm" style="display:none;margin-top:14px;">
+        <div class="field"><label for="addAccEmail">Email</label><input type="email" id="addAccEmail" placeholder="pochta@primer.ru" required autocomplete="off"></div>
+        <div class="field"><label for="addAccPass">Пароль</label><input type="password" id="addAccPass" required autocomplete="current-password"></div>
+        <button class="btn btn-primary btn-sm" type="submit" style="width:100%;">Войти и добавить</button>
+      </form>
+    </div>
+
+    <div id="accountsLimitBlock" style="display:none;margin-top:14px;">
+      <div class="modal-error show" style="position:static;">Бесплатный лимит исчерпан — купите ещё слот, разово, без подписки.</div>
+      <button class="btn btn-outline btn-sm" type="button" id="btnBuyAccountSlot" style="width:100%;margin-top:8px;">Купить слот за <span id="accSlotPriceLabel">25</span> сомони</button>
+      <div id="buyAccountSlotPanel" style="display:none;margin-top:14px;">
+        <div class="modal-error" id="accSlotNotConfigured" style="display:none;">Реквизиты не настроены, напишите в поддержку.</div>
+        <div id="accSlotStepsWrap">
+          <div class="pay-req">
+            <div class="pay-req-row"><span>Карта</span><b id="accSlotReqCard">—</b><button type="button" class="pay-copy" data-copy="accSlotReqCard" title="Скопировать">⧉</button></div>
+            <div class="pay-req-row"><span>Получатель</span><b id="accSlotReqHolder">—</b></div>
+            <div class="pay-req-row"><span>Банк</span><b id="accSlotReqBank">—</b></div>
+            <div class="pay-req-row"><span>Комментарий</span><b id="accSlotReqComment">—</b><button type="button" class="pay-copy" data-copy="accSlotReqComment" title="Скопировать">⧉</button></div>
+          </div>
+          <form id="buyAccountSlotForm">
+            <div class="field"><label for="accSlotPayerName">Имя отправителя (как в банке)</label><input type="text" id="accSlotPayerName" required maxlength="80"></div>
+            <div class="field"><label for="accSlotPayerDigits">Последние 4 цифры карты</label><input type="text" id="accSlotPayerDigits" required inputmode="numeric" pattern="\d{4}" maxlength="4"></div>
+            <button class="btn btn-primary btn-sm" type="submit" style="width:100%;">Отправить на проверку</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="telegramModal">
+  <div class="modal-box">
+    <button class="modal-close" id="telegramModalClose">✕</button>
+    <div class="modal-head">
+      <h3>Подключить Telegram</h3>
+      <p>Сообщения из вашего бота будут сами становиться заявками в воронке</p>
+    </div>
+    <div class="modal-error" id="telegramModalError"></div>
+
+    <div id="telegramConnectedState" style="display:none;text-align:center;padding:6px 0 4px;">
+      <div class="empty-state-icon" style="margin:0 auto 14px;"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-check"/></svg></div>
+      <p style="margin:0 0 4px;color:var(--ink);font-weight:600;">Бот подключен: <span id="telegramConnectedUsername">—</span></p>
+      <p style="margin:0 0 20px;color:var(--muted);font-size:13px;">Новые сообщения из Telegram уже становятся заявками</p>
+      <button class="btn btn-outline" id="btnTelegramDisconnect" type="button" style="width:100%;">Отключить бота</button>
+    </div>
+
+    <form id="telegramConnectForm">
+      <ol style="font-size:13px;color:var(--muted);line-height:1.6;margin:0 0 16px;padding-left:18px;">
+        <li>Откройте в Telegram бота <b>@BotFather</b></li>
+        <li>Отправьте команду <span class="mono">/newbot</span> и придумайте имя</li>
+        <li>Скопируйте выданный токен и вставьте сюда</li>
+      </ol>
+      <div class="field"><label for="telegramTokenInput">Токен бота</label><input type="text" id="telegramTokenInput" placeholder="123456789:AA…" autocomplete="off"></div>
+      <button class="btn btn-primary" type="submit" id="telegramConnectSubmit">Подключить</button>
+    </form>
+  </div>
+</div>
+
+<div class="modal-overlay" id="instagramModal">
+  <div class="modal-box">
+    <button class="modal-close" id="instagramModalClose">✕</button>
+    <div class="modal-head">
+      <h3>Подключить Instagram</h3>
+      <p>Сообщения из Direct будут сами становиться заявками в воронке</p>
+    </div>
+    <div class="modal-error" id="instagramModalError"></div>
+
+    <div id="instagramConnectedState" style="display:none;text-align:center;padding:6px 0 4px;">
+      <div class="empty-state-icon" style="margin:0 auto 14px;"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-check"/></svg></div>
+      <p style="margin:0 0 4px;color:var(--ink);font-weight:600;">Аккаунт подключён: <span id="instagramConnectedUsername">—</span></p>
+      <p style="margin:0 0 20px;color:var(--muted);font-size:13px;">Новые сообщения из Direct уже становятся заявками</p>
+      <button class="btn btn-outline" id="btnInstagramDisconnect" type="button" style="width:100%;">Отключить аккаунт</button>
+    </div>
+
+    <div id="instagramMetaConnect">
+      <p style="font-size:12.5px;color:var(--muted);margin:0 0 16px;">Вход через официальный Instagram — вы авторизуетесь на instagram.com, MySavdo не видит ваш пароль.</p>
+      <button class="btn btn-primary" type="button" id="btnInstagramMetaConnect" style="width:100%;display:flex;align-items:center;justify-content:center;gap:8px;">
+        <svg width="18" height="18" viewBox="0 0 24 24"><defs><linearGradient id="igGrad" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#FFDD55"/><stop offset=".5" stop-color="#E1306C"/><stop offset="1" stop-color="#5851DB"/></linearGradient></defs><rect x="2" y="2" width="20" height="20" rx="5" fill="url(#igGrad)"/><circle cx="12" cy="12" r="5" fill="none" stroke="#fff" stroke-width="1.8"/><circle cx="17.2" cy="6.8" r="1.1" fill="#fff"/></svg>
+        <span>Войти через Instagram</span>
+      </button>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="profileModal">
+  <div class="modal-box">
+    <button class="modal-close" id="profileClose">✕</button>
+    <div class="modal-head">
+      <h3>Профиль и настройки</h3>
+      <p>Фото, название магазина, почта и пароль</p>
+    </div>
+    <div class="modal-error" id="profileError"></div>
+
+    <div class="profile-avatar-row">
+      <div class="profile-avatar-preview" id="profileAvatarPreview"><span>?</span></div>
+      <div class="profile-avatar-actions">
+        <input type="file" id="profileAvatarInput" accept="image/*" style="display:none;">
+        <button class="btn btn-outline btn-sm" id="profileAvatarBtn" type="button">Сменить фото</button>
+        <p class="profile-avatar-hint">JPG, PNG или WEBP до 8 МБ</p>
+      </div>
+    </div>
+
+    <form id="profileForm">
+      <div class="field"><label for="profileShopName">Название магазина</label><input type="text" id="profileShopName" placeholder="Например, «Ситора»"></div>
+      <div class="field"><label for="profileUsername">Юзернейм <span class="muted-inline">(по нему вас находят в поиске)</span></label><input type="text" id="profileUsername" placeholder="latin_and_digits" maxlength="24" autocomplete="off"></div>
+      <div class="field"><label for="profilePhone">Телефон <span class="muted-inline">(увидят клиенты в боте)</span></label><input type="tel" id="profilePhone" placeholder="+992 XX 123 45 67" autocomplete="tel"></div>
+      <div class="field"><label for="profileSalesGoal">Цель продаж на месяц, сомони <span class="muted-inline">(необязательно)</span></label><input type="number" id="profileSalesGoal" placeholder="Например, 5000" min="0" step="10" inputmode="numeric"></div>
+      <div class="field"><label for="profileEmail">Email</label><input type="email" id="profileEmail" placeholder="pochta@primer.ru" required></div>
+      <div class="profile-divider">Смена пароля</div>
+      <div class="field" id="profileCurrentPassField"><label for="profileCurrentPass">Текущий пароль</label><input type="password" id="profileCurrentPass" placeholder="Нужен для смены почты или пароля" autocomplete="current-password"></div>
+      <div class="field"><label for="profileNewPass">Новый пароль</label><input type="password" id="profileNewPass" placeholder="Оставьте пустым, если не меняете" autocomplete="new-password"></div>
+      <p class="profile-pass-hint" id="profilePassHint">Для смены почты или пароля укажите текущий пароль</p>
+      <button class="btn btn-primary" type="submit" id="profileSubmit">Сохранить</button>
+    </form>
+  </div>
+</div>
+
+<div class="modal-overlay" id="clientInfoModal">
+  <div class="modal-box">
+    <button class="modal-close" id="clientInfoClose">✕</button>
+    <div class="client-info-head">
+      <div class="profile-avatar-preview" id="clientInfoAvatar"><span>?</span></div>
+      <div class="client-info-head-txt">
+        <h3 id="clientInfoName">Клиент</h3>
+        <div class="ct-chan" id="clientInfoChan"></div>
+      </div>
+    </div>
+
+    <div class="pay-req client-info-fields">
+      <div class="pay-req-row"><span>Телефон</span><b id="clientInfoPhone">—</b></div>
+      <div class="pay-req-row"><span>Ник / ID</span><b id="clientInfoHandle">—</b></div>
+      <div class="pay-req-row"><span>Этап</span><b id="clientInfoStage">—</b></div>
+      <div class="pay-req-row"><span>Сумма</span><b id="clientInfoValue">—</b></div>
+      <div class="pay-req-row"><span>Настроение</span><b id="clientInfoSentiment">—</b></div>
+      <div class="pay-req-row"><span>Клиент с</span><b id="clientInfoCreated">—</b></div>
+      <div class="pay-req-row"><span>Был(а) в сети</span><b id="clientInfoSeen">—</b></div>
+    </div>
+
+    <div class="field" id="clientInfoNotesWrap" style="display:none;">
+      <label>Заметка</label>
+      <p class="client-info-notes" id="clientInfoNotes"></p>
+    </div>
+
+    <div class="client-info-actions">
+      <button class="btn btn-primary btn-sm" id="clientInfoOpenChat" type="button">Открыть чат</button>
+      <button class="btn btn-outline btn-sm" id="clientInfoExport" type="button"><svg class="icon icon-sm" viewBox="0 0 24 24"><use href="#icon-download"/></svg>Экспорт в Excel</button>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="orderExtractModal">
+  <div class="modal-box">
+    <button class="modal-close" id="orderExtractClose">✕</button>
+    <div class="modal-head">
+      <h3><svg class="icon icon-sm" viewBox="0 0 24 24" style="vertical-align:-3px;margin-right:6px;"><use href="#icon-sparkle"/></svg>ИИ: детали заказа</h3>
+      <p>Разбираю последние сообщения в переписке — ничего не выдумываю, только то, что реально сказано</p>
+    </div>
+    <div id="orderExtractBody">
+      <p style="color:var(--muted);font-size:13.5px;">Анализирую переписку…</p>
+    </div>
+    <div class="client-info-actions">
+      <button class="btn btn-primary btn-sm" id="orderExtractApply" type="button" style="display:none;">Добавить в заметку</button>
+      <button class="btn btn-outline btn-sm" id="orderExtractRetry" type="button" style="display:none;">Повторить</button>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="deleteReasonModal">
+  <div class="modal-box">
+    <button class="modal-close" id="deleteReasonClose">✕</button>
+    <div class="modal-head">
+      <h3>Удалить заявку «<span id="deleteReasonClientName">клиента</span>»?</h3>
+      <p>Это действие нельзя отменить. Причина поможет увидеть, почему вообще теряются клиенты, а не гадать по памяти.</p>
+    </div>
+    <form id="deleteReasonForm">
+      <div class="field">
+        <label for="deleteReasonSelect">Причина</label>
+        <select id="deleteReasonSelect" required>
+          <option value="" disabled selected>Выберите причину</option>
+          <option value="refused">Клиент отказался от покупки</option>
+          <option value="no_reply">Клиент не отвечает / пропал</option>
+          <option value="cheaper_elsewhere">Нашёл дешевле в другом месте</option>
+          <option value="bought_elsewhere">Уже купил в другом магазине</option>
+          <option value="duplicate">Дубликат заявки</option>
+          <option value="spam">Спам / бот / нецелевой контакт</option>
+          <option value="test">Ошибка / тестовая запись</option>
+          <option value="other">Другое</option>
+        </select>
+      </div>
+      <div class="field" id="deleteReasonNoteWrap" style="display:none;">
+        <label for="deleteReasonNote">Уточните</label>
+        <textarea id="deleteReasonNote" rows="2" maxlength="300" placeholder="Коротко опишите причину"></textarea>
+      </div>
+      <div class="client-info-actions">
+        <button class="btn btn-outline btn-sm" type="button" id="deleteReasonCancel">Отмена</button>
+        <button class="btn btn-danger btn-sm" type="submit" id="deleteReasonSubmit"><svg class="icon icon-sm" viewBox="0 0 24 24"><use href="#icon-trash"/></svg>Удалить заявку</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div class="modal-overlay" id="employeeLoginModal">
+  <div class="modal-box secret-code-box">
+    <button class="modal-close" id="employeeLoginClose">✕</button>
+    <div class="secret-code-icon"><svg class="icon icon-lg" viewBox="0 0 24 24"><use href="#icon-users"/></svg></div>
+    <h3>Вход сотрудника</h3>
+    <p class="modal-sub">Введите ID и пароль, которые вам выдал владелец магазина</p>
+    <div class="modal-error" id="employeeLoginError"></div>
+    <form id="employeeLoginForm">
+      <div class="field"><label for="employeeLoginId">ID сотрудника</label><input type="text" id="employeeLoginId" autocomplete="off" placeholder="Например, a1b2c3d4" required></div>
+      <div class="field"><label for="employeeLoginPass">Пароль</label><input type="password" id="employeeLoginPass" autocomplete="current-password" required></div>
+      <button class="btn btn-primary" type="submit">Войти</button>
+    </form>
+  </div>
+</div>
+
+<div class="modal-overlay" id="createShopModal">
+  <div class="modal-box secret-code-box">
+    <button class="modal-close" id="createShopClose">✕</button>
+    <div class="secret-code-icon"><svg class="icon icon-lg" viewBox="0 0 24 24"><use href="#icon-bag"/></svg></div>
+    <h3>Создать магазин</h3>
+    <p class="modal-sub">Магазин можно расширять сотрудниками. Юзернейм — латиница, цифры, «_», 3–24 символа</p>
+    <div class="modal-error" id="createShopError"></div>
+    <form id="createShopForm">
+      <div class="field">
+        <label for="createShopUsername">Юзернейм магазина</label>
+        <input type="text" id="createShopUsername" autocomplete="off" placeholder="my_shop" pattern="[a-zA-Z0-9_]{3,24}" maxlength="24" required>
+        <p class="field-hint" id="createShopHint"></p>
+      </div>
+      <button class="btn btn-primary" type="submit">Создать магазин</button>
+    </form>
+  </div>
+</div>
+
+<div class="modal-overlay" id="employeesModal">
+  <div class="modal-box admin-box">
+    <button class="modal-close" id="employeesClose">✕</button>
+    <div class="modal-head">
+      <h3>Сотрудники магазина</h3>
+      <p class="modal-sub">@<span id="employeesShopUsername"></span></p>
+    </div>
+
+    <div class="admin-section">
+      <div class="slot-meter">
+        <div class="mf-track"><div class="mf-fill" id="slotsFill"></div></div>
+        <span id="slotsLabel">0 / 4 мест занято</span>
+      </div>
+      <button class="btn btn-outline btn-sm" id="btnBuySlots" type="button" style="margin-top:10px;">Купить +5 мест за 20 сомони</button>
+      <div id="buySlotsPanel" style="display:none;margin-top:14px;">
+        <div class="modal-error" id="slotsNotConfigured" style="display:none;">Реквизиты не настроены, напишите в поддержку.</div>
+        <div id="slotsStepsWrap">
+          <div class="pay-req">
+            <div class="pay-req-row"><span>Карта</span><b id="slotsReqCard">—</b><button type="button" class="pay-copy" data-copy="slotsReqCard" title="Скопировать">⧉</button></div>
+            <div class="pay-req-row"><span>Получатель</span><b id="slotsReqHolder">—</b></div>
+            <div class="pay-req-row"><span>Банк</span><b id="slotsReqBank">—</b></div>
+            <div class="pay-req-row"><span>Комментарий</span><b id="slotsReqComment">—</b><button type="button" class="pay-copy" data-copy="slotsReqComment" title="Скопировать">⧉</button></div>
+          </div>
+          <form id="buySlotsForm">
+            <div class="field"><label for="slotsPayerName">Имя отправителя (как в банке)</label><input type="text" id="slotsPayerName" required maxlength="80"></div>
+            <div class="field"><label for="slotsPayerDigits">Последние 4 цифры карты</label><input type="text" id="slotsPayerDigits" required inputmode="numeric" pattern="\d{4}" maxlength="4"></div>
+            <button class="btn btn-primary btn-sm" type="submit">Отправить на проверку</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="admin-section">
+      <div class="admin-section-head">
+        <h4>Активные сотрудники</h4>
+        <button class="btn btn-outline btn-sm" id="btnAddEmployee" type="button"><svg class="icon icon-sm" viewBox="0 0 24 24"><use href="#icon-plus"/></svg>Добавить</button>
+      </div>
+      <div id="newEmployeeReveal" class="cred-reveal" style="display:none;"></div>
+      <div class="admin-users-list" id="employeesActiveList"></div>
+    </div>
+
+    <div class="admin-section">
+      <h4>Заявки на трудоустройство</h4>
+      <div class="admin-users-list" id="employeesPendingList"></div>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="joinShopModal">
+  <div class="modal-box">
+    <button class="modal-close" id="joinShopClose">✕</button>
+    <div class="modal-head">
+      <h3>Стать сотрудником</h3>
+      <p>Найдите магазин по юзернейму и подайте заявку</p>
+    </div>
+    <div class="modal-error" id="joinShopError"></div>
+
+    <div class="search-field">
+      <svg class="icon icon-sm" viewBox="0 0 24 24"><use href="#icon-search"/></svg>
+      <input type="text" id="joinShopSearch" placeholder="Юзернейм магазина…">
+    </div>
+    <div id="joinShopResult" class="join-shop-result" style="display:none;"></div>
+
+    <div class="profile-divider">Мои заявки</div>
+    <div class="admin-users-list" id="myApplicationsList"></div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="payModal">
+  <div class="modal-box">
+    <button class="modal-close" id="payClose">✕</button>
+    <div class="modal-head">
+      <h3>Оплата тарифа <span id="payPlanTitle">«Стандарт»</span></h3>
+      <p>Сумма к оплате: <b id="payAmount">79 сомони</b></p>
+    </div>
+    <div class="modal-error" id="payError"></div>
+
+    <div class="modal-error" id="payNotConfigured" style="display:none;">Реквизиты не настроены, напишите в поддержку.</div>
+    <div class="pay-steps" id="payStepsWrap">
+      <div class="pay-step">
+        <span class="pay-step-num">1</span>
+        <div>
+          <b>Переведите сумму на карту</b>
+          <div class="pay-req">
+            <div class="pay-req-row"><span>Карта</span><b id="payReqCard">0000 0000 0000 0000</b><button type="button" class="pay-copy" data-copy="payReqCard" title="Скопировать">⧉</button></div>
+            <div class="pay-req-row"><span>Получатель</span><b id="payReqHolder">—</b></div>
+            <div class="pay-req-row"><span>Банк</span><b id="payReqBank">—</b></div>
+            <div class="pay-req-row"><span>Комментарий</span><b id="payReqComment">MYSAVDO</b><button type="button" class="pay-copy" data-copy="payReqComment" title="Скопировать">⧉</button></div>
+          </div>
+          <div class="pay-qr-row" id="payQrRow" style="display:none;"><img id="payQrImg" src="" alt="QR-код для оплаты"></div>
+          <p class="pay-hint">Укажите комментарий к переводу — так мы быстрее найдём ваш платёж.</p>
+        </div>
+      </div>
+      <div class="pay-step">
+        <span class="pay-step-num">2</span>
+        <div style="flex:1;">
+          <b>Подтвердите перевод</b>
+          <form id="payForm">
+            <div class="field"><label for="payPayerName">Имя отправителя (как в банке)</label><input type="text" id="payPayerName" placeholder="Например, Шерджахон А." required maxlength="80"></div>
+            <div class="field"><label for="payPayerDigits">Последние 4 цифры вашей карты</label><input type="text" id="payPayerDigits" placeholder="1234" required inputmode="numeric" pattern="\d{4}" maxlength="4"></div>
+            <p class="pay-hint">Мы никогда не спрашиваем полный номер карты, срок действия или CVV — эти данные вводить нигде на сайте не нужно. Для сверки достаточно последних 4 цифр.</p>
+            <button class="btn btn-primary" type="submit" id="paySubmit">Я перевёл(а) — отправить на проверку</button>
+          </form>
+        </div>
+      </div>
+      <div class="pay-step">
+        <span class="pay-step-num">3</span>
+        <div><b>Активация</b><p class="pay-hint" style="margin-top:4px;">Администратор сверит перевод и подтвердит платёж — тариф включится автоматически. Обычно это занимает до пары часов.</p></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="tour-overlay" id="tourOverlay">
+  <div class="tour-spotlight" id="tourSpotlight"></div>
+  <div class="tour-arrow" id="tourArrow"></div>
+  <div class="tour-card" id="tourCard">
+    <div class="tour-card-head">
+      <div class="tour-badge"><svg class="icon icon-sm" viewBox="0 0 24 24"><use href="#icon-lime"/></svg><span id="tourStepLabel">1/5</span></div>
+      <button class="tour-skip" id="tourSkip">Пропустить тур ✕</button>
+    </div>
+    <h4 class="tour-title" id="tourTitle">Заголовок</h4>
+    <p class="tour-text" id="tourText">Описание кнопки.</p>
+    <div class="tour-ask" id="tourAskWrap">
+      <button class="tour-ask-toggle" id="tourAskToggle">
+        <svg class="icon icon-sm" viewBox="0 0 24 24"><use href="#icon-lime"/></svg>
+        <span id="tourAskToggleLabel">Спросить Лайма</span>
+      </button>
+      <div class="tour-ask-body" id="tourAskBody">
+        <div class="tour-chat" id="tourChat"></div>
+        <form class="tour-ask-form" id="tourAskForm">
+          <input type="text" id="tourAskInput" placeholder="Например: а как подключить Instagram?" autocomplete="off">
+          <button type="submit" class="btn btn-primary btn-sm"><svg class="icon icon-sm" viewBox="0 0 24 24"><use href="#icon-send"/></svg></button>
+        </form>
+      </div>
+    </div>
+    <div class="tour-card-foot">
+      <div class="tour-dots" id="tourDots"></div>
+      <div class="tour-nav-btns">
+        <button class="btn btn-ghost btn-sm" id="tourPrev">← Назад</button>
+        <button class="btn btn-primary btn-sm" id="tourNext">Дальше →</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="floating-tools" id="floatingTools">
+  <button type="button" class="mag-toggle" id="btnMagnifier" title="Лупа для чтения">
+    <svg class="icon" viewBox="0 0 24 24"><use href="#icon-search"/></svg>
+  </button>
+
+  <div class="ai-guide" id="aiGuide">
+    <div class="ai-guide-bubble" id="aiGuideBubble"></div>
+    <div class="ai-guide-panel" id="aiGuidePanel">
+      <div class="ai-guide-panel-head">
+        <div class="ai-guide-panel-title">
+          <div class="ai-guide-mini-avatar"><svg class="icon icon-sm" viewBox="0 0 24 24"><use href="#icon-lime"/></svg></div>
+          <div><b>Лайм</b><span>ИИ-гид по сайту</span></div>
+        </div>
+        <button type="button" class="ai-guide-close" id="aiGuideClose">✕</button>
+      </div>
+      <div class="ai-guide-chat" id="aiGuideChat"></div>
+      <form class="ai-guide-form" id="aiGuideForm">
+        <button type="button" class="btn-mic" id="aiGuideMic" title="Голосовая команда">
+          <svg class="icon icon-sm" viewBox="0 0 24 24"><use href="#icon-mic"/></svg>
+        </button>
+        <input type="text" id="aiGuideInput" placeholder="Например: покажи тарифы" autocomplete="off">
+        <button type="submit" class="ai-guide-send"><svg class="icon icon-sm" viewBox="0 0 24 24"><use href="#icon-send"/></svg></button>
+      </form>
+    </div>
+    <button type="button" class="ai-guide-avatar" id="aiGuideAvatarBtn" title="Спросить у Лайма">
+      <svg class="icon" viewBox="0 0 24 24"><use href="#icon-lime"/></svg>
+    </button>
+  </div>
+</div>
+
+<div class="magnifier-ring" id="magnifierRing"></div>
+
+<script src="assets/js/app.js"></script>
+<script src="assets/js/mobile-bridge.js"></script>
+<script>
+  if ('serviceWorker' in navigator && (location.protocol === 'https:' || location.hostname === 'localhost')) {
+    window.addEventListener('load', () => { navigator.serviceWorker.register('/sw.js').catch(() => {}); });
+  }
+</script>
+</body>
+</html>
